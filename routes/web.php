@@ -24,3 +24,10 @@ Route::get('/dataBuku', function () {
         "title" => "Data Buku"
     ]);
 });
+
+Route::get('/masuk', function () {
+    return view('login', [
+        "title" => "Masuk"
+    ]);
+});
+

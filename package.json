@@ -17,5 +17,9 @@
         "lodash": "^4.17.19",
         "postcss": "^8.4.33",
         "tailwindcss": "^3.4.1"
+    },
+    "dependencies": {
+        "@prettier/plugin-php": "^0.22.1",
+        "prettier": "^3.2.4"
     }
 }

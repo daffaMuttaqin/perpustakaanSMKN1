@@ -26,6 +26,8 @@ module.exports = {
             fontFamily: {
                 rubik: ["Rubik"],
                 id: ["Text Me One"],
+                fira: ["Fira Sans Extra Condensed"],
+                robotoCondensed: ["Roboto Condensed"],
             },
         },
     },

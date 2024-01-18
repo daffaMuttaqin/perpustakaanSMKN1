@@ -5,11 +5,14 @@ class="flex fixed h-22 w-full px-7 bg-primary1 justify-between shadow-xl inset-0
 <!-- Bagian Kiri Logo dan Nama Sekolah -->
 <div class="flex items-center">
   <!-- Logo -->
-  <img
-    src="img/icon.png"
-    alt=""
-    class="pr-7"
-  />
+  <a href="/">
+    <!-- Logo -->
+    <img
+        src="img/icon.png"
+        alt=""
+        class="pr-7"
+    />
+  </a>
   <!-- Nama Sekolah -->
   <div class="font-bold text-white text-xl">
     Perpustakaan SMK N1 Bumi Ratu Nuban
