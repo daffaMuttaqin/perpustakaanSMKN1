@@ -230,6 +230,11 @@
             <!-- Modal body -->
             <form class="max-w-3xl mx-auto my-5 pb-5">
                 <div class="mb-5">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Sampul</label>
+                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                </div>
+
+                <div class="mb-5">
                   <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul Buku</label>
                   <input type="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan Judul Buku" required>
                 </div>
