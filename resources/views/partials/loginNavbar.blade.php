@@ -5,7 +5,7 @@
 <nav class="flex fixed h-22 w-full px-7 bg-primary1 justify-start shadow-xl inset-0">
 <!-- Bagian Kiri Logo dan Nama Sekolah -->
     <div class="flex items-center">
-        <a href="/">
+        <a href="/" class="hover:scale-110 duration-300">
             <!-- Logo -->
             <img
                 src="img/icon.png"

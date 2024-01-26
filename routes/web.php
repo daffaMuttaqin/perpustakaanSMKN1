@@ -14,14 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', [
-        "title" => "Home"
-    ]);
-});
-
-Route::get('/dataBuku', function () {
-    return view('admin/dataBuku', [
-        "title" => "Data Buku"
+    return view('rumah', [
+        "title" => "Rumah"
     ]);
 });
 
@@ -31,3 +25,66 @@ Route::get('/masuk', function () {
     ]);
 });
 
+Route::get('/dataBuku', function () {
+    return view('admin/dataBuku', [
+        "title" => "Data Buku",
+        "subJudul" => "Data Buku",
+        "subJudul2" => "Data Rekomendasi",
+        "subJudul3" => "",
+    ]);
+});
+
+
+Route::get('/dataAnggota', function () {
+    return view('admin/dataAnggota', [
+        "title" => "Data Anggota",
+        "subJudul" => "Data Anggota Perpustakaan",
+        "subJudul2" => "",
+        "subJudul3" => "",
+    ]);
+});
+
+Route::get('/dataPekerja', function () {
+    return view('admin/dataPekerja', [
+        "title" => "Data pekerja",
+        "subJudul" => "Data Pekerja Perpustakaan",
+        "subJudul2" => "",
+        "subJudul3" => "",
+    ]);
+});
+
+Route::get('/transaksi', function () {
+    return view('admin/transaksi', [
+        "title" => "Transaksi",
+        "subJudul" => "Transaksi Buku",
+        "subJudul2" => "",
+        "subJudul3" => "",
+    ]);
+});
+
+Route::get('/dataLaporan', function () {
+    return view('admin/dataLaporan', [
+        "title" => "Laporan",
+        "subJudul" => "Data Laporan",
+        "subJudul2" => "Bukti Setoran",
+        "subJudul3" => "Upload Laporan",
+    ]);
+});
+
+Route::get('/buktiSetoran', function () {
+    return view('admin/buktiSetoran', [
+        "title" => "Laporan",
+        "subJudul" => "Data Laporan",
+        "subJudul2" => "Bukti Setoran",
+        "subJudul3" => "Upload Laporan",
+    ]);
+});
+
+Route::get('/uploadLaporan', function () {
+    return view('admin/uploadLaporan', [
+        "title" => "Laporan",
+        "subJudul" => "Data Laporan",
+        "subJudul2" => "Bukti Setoran",
+        "subJudul3" => "Upload Laporan",
+    ]);
+});

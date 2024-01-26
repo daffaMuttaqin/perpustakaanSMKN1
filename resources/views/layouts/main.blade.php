@@ -6,7 +6,7 @@
   <!-- Bagian Kiri Logo dan Nama Sekolah -->
   <div class="flex items-center">
     <!-- Logo -->
-    <a href="/">
+    <a href="/" class="hover:scale-110 duration-300">
       <!-- Logo -->
       <img
           src="img/icon.png"
@@ -218,18 +218,25 @@
     <div style="height: 78%;" class="flex w-full">
       <!-- Void untuk menggeser konten ke kanan -->
       <div class="h-full w-1/5"></div>
+
       <div class="w-4/5 pr-14">
           <!-- Sub Judul -->
           <div class="flex mt-4">
-            <button
-              class="font-medium text-base text-primary1 px-5 py-1 rounded-full bg-bgSubJudul"
-            >
-              {{ $title }}
-            </button>
-    
-            <button class="font-medium text-base text-fontSubJudul px-5 py-1 ml-11">
-              Data Rekomendasi Buku
-            </button>
+            {{-- Class Sub Judul Aktif --}}
+            <a href="#" class="font-medium text-base text-primary1 px-5 py-1 rounded-full bg-bgSubJudul">
+              {{ $subJudul }}
+            </a>
+            
+            {{-- Class Sub Judul Normal --}}
+            <a href="#" class="font-medium text-base text-fontSubJudul px-5 py-1 ml-11">
+              {{ $subJudul2 }}
+            </a>
+
+            {{-- Class Sub Judul Normal --}}
+            <a href="#" class="font-medium text-base text-fontSubJudul px-5 py-1 ml-11">
+              {{ $subJudul3 }}
+            </a>
+
           </div>
           {{-- End Sub Judul --}}
 

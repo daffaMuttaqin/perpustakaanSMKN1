@@ -6,7 +6,7 @@
     {{-- Tailwind --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- FLOWBITE --}}
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css','resources/js/app.js']) --}}
 
     <title>{{ $title }}</title>
   </head>
