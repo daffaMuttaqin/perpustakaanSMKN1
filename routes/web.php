@@ -29,11 +29,19 @@ Route::get('/dataBuku', function () {
     return view('admin/dataBuku', [
         "title" => "Data Buku",
         "subJudul" => "Data Buku",
-        "subJudul2" => "Data Rekomendasi",
+        "subJudul2" => "Data Peminjaman",
         "subJudul3" => "",
     ]);
 });
 
+Route::get('/dataPeminjaman', function () {
+    return view('admin/dataPeminjaman', [
+        "title" => "Data Buku",
+        "subJudul" => "Data Buku",
+        "subJudul2" => "Data Peminjaman",
+        "subJudul3" => "",
+    ]);
+});
 
 Route::get('/dataAnggota', function () {
     return view('admin/dataAnggota', [
