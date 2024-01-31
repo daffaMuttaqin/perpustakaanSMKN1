@@ -45,7 +45,7 @@
                             Total Pinjam
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
-                            Action
+                            Aksi
                         </th>
                     </tr>
                 </thead>

@@ -61,9 +61,9 @@
                             10/26/2022
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <button class="px-5 py-1 text-sm text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                            <div class="px-5 py-1 text-sm text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                 Done
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button class="">
@@ -89,9 +89,9 @@
                             10/26/2022
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <button class="px-5 py-1 text-sm text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                            <div class="px-5 py-1 text-sm text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                 Done
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button class="">
@@ -117,9 +117,9 @@
                             10/26/2022
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <button class="px-5 py-1 text-sm text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                            <div class="px-5 py-1 text-sm text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                 Done
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button class="">
@@ -145,9 +145,9 @@
                             10/26/2022
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <button class="px-5 py-1 text-sm text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                            <div class="px-5 py-1 text-sm text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                 Done
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button class="">

@@ -3,8 +3,6 @@
 {{-- KONTEN --}}
 <div class="w-full h-full">
     <div class="flex items-center gap-x-24">
-        {{-- Tombol Buku Baru --}}
-        <button data-modal-target="tambahBuku" data-modal-toggle="tambahBuku" class="text-lg text-white text-center ml-10 px-5 py-1 rounded-full bg-primary1 hover:bg-blue-800 duration-300">Tambah Buku</button>
         {{-- Search Bar --}}
         <form class="w-5/12 z-10">
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
@@ -49,9 +47,6 @@
                         <th scope="col" class="px-6 py-3">
                             Status
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Aksi
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,7 +56,7 @@
                             1
                         </th>
                         <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="">
                         </td>
                         <td class="px-6 py-4">
                             Pendidikan Agama Islam dan Budi Pekerti
@@ -82,13 +77,6 @@
                             <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                 Tersedia
                             </div>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                    <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
-                                  </svg>      
-                            </button>
                         </td>
                     </tr>
 
@@ -98,7 +86,7 @@
                             2
                         </th>
                         <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="">
                         </td>
                         <td class="px-6 py-4">
                             Pendidikan Agama Islam dan Budi Pekerti
@@ -120,13 +108,6 @@
                                 Tersedia
                             </div>
                         </td>
-                        <td class="px-6 py-4 text-center">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                    <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
-                                  </svg>
-                            </button>
-                        </td>
                     </tr>
 
                     {{-- Data 3 --}}
@@ -135,7 +116,7 @@
                             3
                         </th>
                         <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="">
                         </td>
                         <td class="px-6 py-4">
                             Pendidikan Agama Islam dan Budi Pekerti
@@ -157,13 +138,6 @@
                                 Tidak Tersedia
                             </div>
                         </td>
-                        <td class="px-6 py-4 text-center">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                    <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
-                                  </svg>
-                            </button>
-                        </td>
                     </tr>
 
                     {{-- Data 4 --}}
@@ -172,7 +146,7 @@
                             4
                         </th>
                         <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="">
                         </td>
                         <td class="px-6 py-4">
                             Pendidikan Agama Islam dan Budi Pekerti
@@ -193,13 +167,6 @@
                             <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                 Tidak Tersedia
                             </div>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                    <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
-                                  </svg>
-                            </button>
                         </td>
                     </tr>
 

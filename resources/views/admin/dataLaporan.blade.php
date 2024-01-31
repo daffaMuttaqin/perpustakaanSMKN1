@@ -77,9 +77,9 @@
                             Rp. 5000
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <button class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
+                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                 Terlambat
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button class="">
@@ -114,9 +114,9 @@
                             Rp. 5000
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <button class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
+                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                 Terlambat
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button class="">
@@ -151,9 +151,9 @@
                             -
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <button class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
+                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                 Terlambat
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button class="">
@@ -188,9 +188,9 @@
                             -
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <button class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
+                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                 Terlambat
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button class="">

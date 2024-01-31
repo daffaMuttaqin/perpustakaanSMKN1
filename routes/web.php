@@ -96,3 +96,21 @@ Route::get('/uploadLaporan', function () {
         "subJudul3" => "Upload Laporan",
     ]);
 });
+
+Route::get('/kepsek', function () {
+    return view('kepsek/daftarLaporan', [
+        "title" => "Laporan",
+        "subJudul" => "Daftar Laporan",
+        "subJudul2" => "",
+        "subJudul3" => "",
+    ]);
+});
+
+Route::get('/perpustakaan', function () {
+    return view('kepsek/perpustakaan', [
+        "title" => "Perpustakaan",
+        "subJudul" => "Buku",
+        "subJudul2" => "",
+        "subJudul3" => "",
+    ]);
+});

@@ -45,7 +45,7 @@
                             Status
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
-                            Action
+                            Aksi
                         </th>
                     </tr>
                 </thead>
@@ -68,9 +68,9 @@
                             085357679796
                         </td>
                         <td class="px-6 py-4">
-                            <button class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                 Aktif
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button>
@@ -99,9 +99,9 @@
                             085357679796
                         </td>
                         <td class="px-6 py-4">
-                            <button class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                 Aktif
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button class="">
@@ -130,9 +130,9 @@
                             085357679796
                         </td>
                         <td class="px-6 py-4">
-                            <button class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                 Aktif
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button>
@@ -161,9 +161,9 @@
                             085357679796
                         </td>
                         <td class="px-6 py-4">
-                            <button class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
+                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                 Tidak Aktif
-                            </button>
+                            </div>
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button>
