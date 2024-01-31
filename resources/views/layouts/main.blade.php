@@ -208,8 +208,7 @@
 
             {{-- Tombol Keluar Sidebar --}}
             <div class="flex items-end mb-4">
-                <button class="w-1/2 h-max py-1 mx-auto text-white bg-primary1 rounded-full hover:bg-blue-800 duration-300">Keluar
-                </button>
+                <a href="/keluar" class="w-1/2 h-max py-1 mx-auto text-white text-center bg-primary1 rounded-full hover:bg-blue-800 duration-300">Keluar </a>
             </div>
             {{-- End Tombol Keluar --}}
         </div>

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,26 +16,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('rumah', [
-        "title" => "Rumah"
-    ]);
+// Route::get('/', function () {
+//     return view('rumah', [
+//         "title" => "Rumah"
+//     ]);
+// });
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::middleware(['guest'])->group(function() {
+    Route::get('/masuk', [AuthController::class, 'login'])->name('login');
+    Route::post('/masuk', [AuthController::class, 'authenticating']);
 });
 
-Route::get('/masuk', function () {
-    return view('login', [
-        "title" => "Masuk"
-    ]);
+// Route::get('/masuk', function () {
+//     return view('login', [
+//         "title" => "Masuk"
+//     ]);
+// });
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/keluar', [AuthController::class, 'logout']);
+
+    Route::middleware(['onlyAdmin'])->group(function () {
+
+        Route::get('/dataBuku', [DashboardController::class, 'index']);
+
+    });
+    
 });
 
-Route::get('/dataBuku', function () {
-    return view('admin/dataBuku', [
-        "title" => "Data Buku",
-        "subJudul" => "Data Buku",
-        "subJudul2" => "Data Peminjaman",
-        "subJudul3" => "",
-    ]);
-});
+
+// Route::get('/dataBuku', function () {
+//     return view('admin/dataBuku', [
+//         "title" => "Data Buku",
+//         "subJudul" => "Data Buku",
+//         "subJudul2" => "Data Peminjaman",
+//         "subJudul3" => "",
+//     ]);
+// });
 
 Route::get('/dataPeminjaman', function () {
     return view('admin/dataPeminjaman', [

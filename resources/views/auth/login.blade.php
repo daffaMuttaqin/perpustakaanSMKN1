@@ -19,12 +19,13 @@
                 <hr>
 
                 {{-- FORM LOGIN --}}
-                <form>
+                <form id="formLogin" action="/masuk" method="POST">
+                @csrf 
                     {{-- Input Username --}}
-                    <input type="text" id="username" class="bg-gray-50 mt-6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" placeholder="Nama Pengguna">
+                    <input type="text" id="username" name="username" class="bg-gray-50 mt-6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" placeholder="Nama Pengguna">
 
                     {{-- Input Password --}}
-                    <input type="password" id="password" class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" placeholder="Kata sandi">
+                    <input type="password" id="password" name="password" class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" placeholder="Kata sandi">
 
                     {{-- Tombol Lupa Sandi --}}
                     <div class="mt-3">
