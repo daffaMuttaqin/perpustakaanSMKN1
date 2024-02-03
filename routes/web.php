@@ -24,7 +24,7 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::middleware(['guest'])->group(function() {
+Route::middleware(['guest'])->group(function () {
     Route::get('/masuk', [AuthController::class, 'login'])->name('login');
     Route::post('/masuk', [AuthController::class, 'authenticating']);
 });
@@ -42,9 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['onlyAdmin'])->group(function () {
 
         Route::get('/dataBuku', [DashboardController::class, 'index']);
-
     });
-    
 });
 
 
@@ -56,6 +54,12 @@ Route::middleware(['auth'])->group(function () {
 //         "subJudul3" => "",
 //     ]);
 // });
+
+Route::get('/daftar', function () {
+    return view('public/daftar', [
+        "title" => "Daftar"
+    ]);
+});
 
 Route::get('/dataPeminjaman', function () {
     return view('admin/dataPeminjaman', [

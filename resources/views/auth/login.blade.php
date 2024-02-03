@@ -64,7 +64,7 @@
             <!-- Modal body -->
             <div class="p-4 md:p-5 space-y-4">
                 <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    Silahkan untuk menghubungi administrator untuk melakukan penggantian kata sandi
+                    Silahkan menghubungi administrator yang lain untuk melakukan penggantian kata sandi
                 </p>
             </div>
         </div>

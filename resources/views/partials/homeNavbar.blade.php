@@ -23,6 +23,8 @@
     <!-- Bagian Kanan Notifikasi dan Avatar -->
     <div class="flex items-center">
       <!-- Tombol Masuk -->
-      <a href="/masuk" class="font-semibold text-xl text-white border-2 border-white px-4 rounded-full hover:scale-110 duration-300">Masuk</a>
+      <a href="/masuk" class="font-semibold text-xl text-white border-2 border-white px-4 rounded-full hover:scale-110 duration-300">Admin</a>
     </div>
-  </nav>
+</nav>
+
+<div class="h-22"></div>
