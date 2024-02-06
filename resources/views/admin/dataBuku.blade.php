@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section('konten')
+
 {{-- KONTEN --}}
 <div class="w-full h-full">
     <div class="flex items-center gap-x-24">
@@ -14,7 +15,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
                 </div>
-                <input type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian buku" required>
+                <input name="title" type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian buku">
             </div>
         </form>
     </div>
@@ -55,33 +56,42 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- Data 1 --}}
+                @php $i = 1 @endphp
+                @foreach ($books as $item)
+
+                    {{-- Data  --}}
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            1
+                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap"> 
+                            @php echo($i++) @endphp
                         </th>
                         <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                            <img src="{{ asset('storage/cover-book/' . $item->cover) }}" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
                         </td>
                         <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
+                            {{ $item->title }}
                         </td>
                         <td class="px-6 py-4">
-                            H. Abd. Rahman,<br>Hj. Lim Halimah,<br>Munawir A.M.,<br>H.A. Sholeh Dimyathi,<br>H. Ridhwan.
+                            {{ $item->creator }}
                         </td>
                         <td class="px-6 py-4">
-                            Erlangga
+                            {{ $item->publisher }}
                         </td>
                         <td class="px-6 py-4">
-                            297.73 PEN CB-D.09 2016-14494
+                            {{ $item->ISBN}}
                         </td>
                         <td class="px-6 py-4 text-center">
-                            30
+                            {{ $item->stock }}
                         </td>
                         <td class="px-6 py-4">
+                            @if ( $item->stock == 0 )
+                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
+                                Tidak Tersedia
+                            </div>
+                            @else
                             <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                 Tersedia
                             </div>
+                            @endif
                         </td>
                         <td class="px-6 py-4 text-center">
                             <button>
@@ -92,116 +102,7 @@
                         </td>
                     </tr>
 
-                    {{-- Data 2 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            2
-                        </th>
-                        <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
-                        </td>
-                        <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
-                        </td>
-                        <td class="px-6 py-4">
-                            H. Abd. Rahman,<br>Hj. Lim Halimah,<br>Munawir A.M.,<br>H.A. Sholeh Dimyathi,<br>H. Ridhwan.
-                        </td>
-                        <td class="px-6 py-4">
-                            Erlangga
-                        </td>
-                        <td class="px-6 py-4">
-                            297.73 PEN CB-D.09 2016-14494
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            30
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Tersedia
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                    <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
-                                  </svg>
-                            </button>
-                        </td>
-                    </tr>
-
-                    {{-- Data 3 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 font-medium px-6 py-4 text-gray-900 whitespace-nowrap">
-                            3
-                        </th>
-                        <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
-                        </td>
-                        <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
-                        </td>
-                        <td class="px-6 py-4">
-                            H. Abd. Rahman,<br>Hj. Lim Halimah,<br>Munawir A.M.,<br>H.A. Sholeh Dimyathi,<br>H. Ridhwan.
-                        </td>
-                        <td class="px-6 py-4">
-                            Erlangga
-                        </td>
-                        <td class="px-6 py-4">
-                            297.73 PEN CB-D.09 2016-14494
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            30
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400">
-                                Tidak Tersedia
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                    <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
-                                  </svg>
-                            </button>
-                        </td>
-                    </tr>
-
-                    {{-- Data 4 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 font-medium px-6 py-4 text-gray-900 whitespace-nowrap">
-                            4
-                        </th>
-                        <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
-                        </td>
-                        <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
-                        </td>
-                        <td class="px-6 py-4">
-                            H. Abd. Rahman,<br>Hj. Lim Halimah,<br>Munawir A.M.,<br>H.A. Sholeh Dimyathi,<br>H. Ridhwan.
-                        </td>
-                        <td class="px-6 py-4">
-                            Erlangga
-                        </td>
-                        <td class="px-6 py-4">
-                            297.73 PEN CB-D.09 2016-14494
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            30
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
-                                Tidak Tersedia
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                    <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
-                                  </svg>
-                            </button>
-                        </td>
-                    </tr>
+                @endforeach
 
                 </tbody>
             </table>
@@ -228,35 +129,37 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="max-w-3xl mx-auto my-5 pb-5">
+            <form action="/tambahBuku" method="POST" class="max-w-3xl mx-auto my-5 pb-5" enctype="multipart/form-data">
+            @csrf
+            
                 <div class="mb-5">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Sampul</label>
-                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="cover">Sampul</label>
+                    <input id="cover" name="cover" type="file" accept="image/png, image/jpeg" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none">
                 </div>
 
                 <div class="mb-5">
-                  <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul Buku</label>
-                  <input type="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan Judul Buku" required>
+                  <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul Buku</label>
+                  <input id="title" name="title" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan Judul Buku" required>
                 </div>
 
                 <div class="mb-5">
-                  <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Penulis</label>
-                  <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan nama penulis" required>
+                  <label for="creator" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Penulis</label>
+                  <input id="creator" name="creator" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan nama penulis" required>
                 </div>
 
                 <div class="mb-5">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Penerbitan</label>
-                    <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan nama Penerbit" required>
+                    <label for="publisher" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Penerbitan</label>
+                    <input id="publisher" name="publisher" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan nama Penerbit" required>
                 </div>
 
                 <div class="mb-5">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ISBN</label>
-                    <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan ISBN" required>
+                    <label for="ISBN" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ISBN</label>
+                    <input id="ISBN" name="ISBN" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan ISBN" required>
                 </div>
 
                 <div class="mb-5">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ketersediaan</label>
-                    <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan jumlah buku" required>
+                    <label for="stock" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ketersediaan</label>
+                    <input id="stock" name="stock" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan jumlah buku" required>
                 </div>
 
                 <button type="submit" class="text-white bg-primary1 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Simpan</button>
