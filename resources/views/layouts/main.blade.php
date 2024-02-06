@@ -45,7 +45,7 @@
         data-dropdown-toggle="userDropdown"
         data-dropdown-placement="bottom-start"
         class="w-12 h-12 rounded-full cursor-pointer"
-        src="img/profile.png"
+        src="{{ asset('storage/avatar/' . Auth::user()->avatar) }}"
         alt="User dropdown"
       />
 
@@ -60,14 +60,11 @@
           <div class="font-normal text-3xl py-2">Profil</div>
           <hr />
           <!-- Avatar didalam Drop Down -->
-          <img
-            class="w-28 h-28 mx-auto mt-5 mb-3 rounded-full"
-            src="img/profile.png"
-            alt="Rounded avatar"
+          <img class="w-28 h-28 mx-auto mt-5 mb-3 rounded-full" src="{{ asset('storage/avatar/' . Auth::user()->avatar) }}" alt="Rounded avatar"
           />
           <!-- Nama & Icon Edit -->
           <div class="flex w-full py-1 justify-center">
-            <div class="font-medium truncate px-2">Muchsinin</div>
+            <div class="font-medium truncate px-2">{{ Auth::user()->name }}</div>
             {{-- Button Edit --}}
             <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
                 <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
@@ -77,22 +74,20 @@
           <!-- Badge Admin -->
           <div class="py-2">
             <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"
-              >Administrator</span>
+              >{{ Auth::user()->role }}</span>
           </div>
           <hr />
           <!-- NIK -->
-          <div class="py-2">NIK. 123 45 67 89</div>
+          <div class="py-2">{{ Auth::user()->nip }}</div>
           <hr />
           <!-- Nomor Telpon -->
-          <div class="py-2">Nomor Telpon : 081234567890</div>
+          <div class="py-2">Nomor Telpon : {{ Auth::user()->phone }}</div>
           <hr />
           <!-- Tombol Keluar -->
           <div class="py-2">
-            <button
-              class="bg-primary1 text-white text-center px-6 py-1 rounded-full"
-            >
+            <a href="/keluar" class="bg-primary1 text-white text-center px-6 py-1 rounded-full">
               Keluar
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -149,16 +144,16 @@
             <div>
                 <img
                     class="w-16 h-16 mx-auto mt-16 mb-3 rounded-full"
-                    src="img/profile.png"
+                    src="{{ asset('storage/avatar/' . Auth::user()->avatar) }}"
                     alt="Rounded avatar"
                 />
                 <!-- Nama & Icon Edit -->
                 <div class="flex w-full mt-1 justify-center">
-                    <div class="font-bold truncate px-2">Muchsinin</div>
+                    <div class="font-bold truncate px-2">{{ Auth::user()->name }}</div>
                 </div>
                 <!-- Badge Admin -->
                 <div class="mt-1 text-center">
-                    <span class="bg-green-100 text-green-800 text-xs font-base px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Administrator</span>
+                    <span class="bg-green-100 text-green-800 text-xs font-base px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ Auth::user()->role }}</span>
                 </div>
             </div>
             
@@ -166,43 +161,43 @@
             <div class="row-span-2 mt-9">
                 <div class="flex flex-col">
                     {{-- Tombol Sedang aktif --}}
-                    <button class="flex bg-bgSubJudul py-1 mx-3 rounded-full">
+                    <a href="/dataBuku" class="flex bg-bgSubJudul py-1 mx-3 rounded-full">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 17V2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M5 15V1m8 18v-4"/>
                         </svg>
                         <div class="text-primary1 font-semibold">Data Buku</div>
-                    </button>
+                    </a>
                     {{-- End Tombol Sedang Aktif --}}
 
                     {{-- Tombol Tidak Aktif --}}
-                    <button class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
+                    <a href="/dataAnggota" class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.333 6.764a3 3 0 1 1 3.141-5.023M2.5 16H1v-2a4 4 0 0 1 4-4m7.379-8.121a3 3 0 1 1 2.976 5M15 10a4 4 0 0 1 4 4v2h-1.761M13 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-4 6h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z"/>
                           </svg>
                         <div class="">Data Anggota</div>
-                    </button>
+                    </a>
                     {{-- End Tombol Tidak Aktif --}}
                     
-                    <button class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
+                    <a href="/dataPekerja" class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3a3 3 0 1 1-1.614 5.53M15 12a4 4 0 0 1 4 4v1h-3.348M10 4.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0ZM5 11h3a4 4 0 0 1 4 4v2H1v-2a4 4 0 0 1 4-4Z"/>
                           </svg>
                         <div class="">Data Pekerja</div>
-                    </button>
+                    </a>
 
-                    <button class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
+                    <a href="/transaksi" class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h6m-6 4h6m-6 4h6M1 1v18l2-2 2 2 2-2 2 2 2-2 2 2V1l-2 2-2-2-2 2-2-2-2 2-2-2Z"/>
                           </svg>
                         <div class="">Transaksi</div>
-                    </button>
+                    </a>
 
-                    <button class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
+                    <a href="/dataLaporan" class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.828 10h6.239m-6.239 4h6.239M6 1v4a1 1 0 0 1-1 1H1m14-4v16a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2Z"/>
                           </svg>
                         <div class="">Laporan</div>
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -222,19 +217,28 @@
           <!-- Sub Judul -->
           <div class="flex mt-4">
             {{-- Class Sub Judul Aktif --}}
-            <a href="#" class="font-medium text-base text-primary1 px-5 py-1 rounded-full bg-bgSubJudul">
+            @if ($subJudul == '')
+            @else
+            <a href="{{ route($subJudul) }}" class="font-medium text-base text-primary1 px-5 py-1 rounded-full bg-bgSubJudul">
               {{ $subJudul }}
             </a>
+            @endif
             
             {{-- Class Sub Judul Normal --}}
-            <a href="#" class="font-medium text-base text-fontSubJudul px-5 py-1 ml-11">
+            @if ($subJudul2 == '')
+            @else
+            <a href="{{ route($subJudul2) }}" class="font-medium text-base text-fontSubJudul px-5 py-1 ml-11">
               {{ $subJudul2 }}
             </a>
+            @endif
 
             {{-- Class Sub Judul Normal --}}
-            <a href="#" class="font-medium text-base text-fontSubJudul px-5 py-1 ml-11">
+            @if ($subJudul3 == '')
+            @else
+            <a href="{{ route($subJudul3) }}" class="font-medium text-base text-fontSubJudul px-5 py-1 ml-11">
               {{ $subJudul3 }}
             </a>
+            @endif
 
           </div>
           {{-- End Sub Judul --}}

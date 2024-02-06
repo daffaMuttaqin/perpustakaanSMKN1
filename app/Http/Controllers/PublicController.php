@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class PublicController extends Controller
 {
     public function index (Request $request){
-
-        return view ('public.rumah', ["title" => "Rumah"]);
-        
+        return view ('public.rumah', ["title" => "Rumah"]);        
     }
 }
