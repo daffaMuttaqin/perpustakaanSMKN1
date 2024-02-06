@@ -29,6 +29,7 @@ Route::middleware(['preventBackHistory','auth'])->group(function () {
 
         Route::get('/dataBuku', [BookController::class, 'index'])->name('Data Buku');
         Route::post('/tambahBuku', [BookController::class, 'store']);
+        Route::get('/hapusBuku/{id}', [BookController::class, 'destroy']);
     });
 });
 

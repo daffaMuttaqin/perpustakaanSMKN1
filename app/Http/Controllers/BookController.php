@@ -105,8 +105,15 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy($book)
+    
     {
-        //
+        $imageName = Book::find($book);
+
+        Storage::delete('public/cover-book/'.basename($imageName->cover));
+        
+        Book::where('id', $book)->delete();
+
+        return redirect('/dataBuku');
     }
 }
