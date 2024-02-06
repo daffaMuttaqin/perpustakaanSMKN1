@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,44 +16,21 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('rumah', [
-//         "title" => "Rumah"
-//     ]);
-// });
+Route::get('/', [PublicController::class, 'index']);
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/masuk', [AuthController::class, 'login'])->name('login');
+Route::post('/masuk', [AuthController::class, 'authenticating']);
 
-Route::middleware(['guest'])->group(function () {
-    Route::get('/masuk', [AuthController::class, 'login'])->name('login');
-    Route::post('/masuk', [AuthController::class, 'authenticating']);
-});
-
-// Route::get('/masuk', function () {
-//     return view('login', [
-//         "title" => "Masuk"
-//     ]);
-// });
-
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['preventBackHistory','auth'])->group(function () {
 
     Route::get('/keluar', [AuthController::class, 'logout']);
 
     Route::middleware(['onlyAdmin'])->group(function () {
 
-        Route::get('/dataBuku', [DashboardController::class, 'index']);
+        Route::get('/dataBuku', [BookController::class, 'index'])->name('Data Buku');
+        Route::post('/tambahBuku', [BookController::class, 'store']);
     });
 });
-
-
-// Route::get('/dataBuku', function () {
-//     return view('admin/dataBuku', [
-//         "title" => "Data Buku",
-//         "subJudul" => "Data Buku",
-//         "subJudul2" => "Data Peminjaman",
-//         "subJudul3" => "",
-//     ]);
-// });
 
 Route::get('/daftar', function () {
     return view('public/daftar', [
@@ -68,7 +45,7 @@ Route::get('/dataPeminjaman', function () {
         "subJudul2" => "Data Peminjaman",
         "subJudul3" => "",
     ]);
-});
+})->name('Data Peminjaman');
 
 Route::get('/dataAnggota', function () {
     return view('admin/dataAnggota', [
@@ -77,7 +54,7 @@ Route::get('/dataAnggota', function () {
         "subJudul2" => "",
         "subJudul3" => "",
     ]);
-});
+})->name('Data Anggota Perpustakaan');
 
 Route::get('/dataPekerja', function () {
     return view('admin/dataPekerja', [
@@ -86,7 +63,7 @@ Route::get('/dataPekerja', function () {
         "subJudul2" => "",
         "subJudul3" => "",
     ]);
-});
+})->name('Data Pekerja Perpustakaan');
 
 Route::get('/transaksi', function () {
     return view('admin/transaksi', [
@@ -95,7 +72,7 @@ Route::get('/transaksi', function () {
         "subJudul2" => "",
         "subJudul3" => "",
     ]);
-});
+})->name('Transaksi Buku');
 
 Route::get('/dataLaporan', function () {
     return view('admin/dataLaporan', [
@@ -104,7 +81,7 @@ Route::get('/dataLaporan', function () {
         "subJudul2" => "Bukti Setoran",
         "subJudul3" => "Upload Laporan",
     ]);
-});
+})->name('Data Laporan');
 
 Route::get('/buktiSetoran', function () {
     return view('admin/buktiSetoran', [
@@ -113,7 +90,7 @@ Route::get('/buktiSetoran', function () {
         "subJudul2" => "Bukti Setoran",
         "subJudul3" => "Upload Laporan",
     ]);
-});
+})->name('Bukti Setoran');
 
 Route::get('/uploadLaporan', function () {
     return view('admin/uploadLaporan', [
@@ -122,7 +99,7 @@ Route::get('/uploadLaporan', function () {
         "subJudul2" => "Bukti Setoran",
         "subJudul3" => "Upload Laporan",
     ]);
-});
+})->name('Upload Laporan');
 
 Route::get('/kepsek', function () {
     return view('kepsek/daftarLaporan', [
