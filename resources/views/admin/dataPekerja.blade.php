@@ -4,7 +4,7 @@
 <div class="w-full h-full">
     <div class="flex items-center gap-x-24">
         {{-- Tambah Pekerja --}}
-        <button class="text-lg text-white text-center ml-10 px-5 py-1 rounded-full bg-primary1 hover:bg-blue-800 duration-300">Tambah Pekerja</button>
+        <button data-modal-target="tambahPekerja" data-modal-toggle="tambahPekerja" type="button" class="text-lg text-white text-center ml-10 px-5 py-1 rounded-full bg-primary1 hover:bg-blue-800 duration-300">Tambah Pekerja</button>
         
         {{-- Search Bar --}}
         <form class="w-5/12 z-10">
@@ -42,9 +42,6 @@
                             Nomor Telpon
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
-                            Status
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center">
                             Aksi
                         </th>
                     </tr>
@@ -67,17 +64,12 @@
                         <td class="px-6 py-4">
                             085357679796
                         </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Aktif
-                            </div>
-                        </td>
                         <td class="flex px-6 py-4 text-center justify-center">
-                            <a href="#">
+                            <button data-modal-target="editPekerja" data-modal-toggle="editPekerja">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
                                   </svg>      
-                            </a>
+                            </button>
                             <button data-modal-target="delete-modal" data-modal-toggle="delete-modal" type="button">
                                 <svg class="w-5 h-5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
@@ -103,17 +95,12 @@
                         <td class="px-6 py-4">
                             085357679796
                         </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Aktif
-                            </div>
-                        </td>
                         <td class="flex px-6 py-4 text-center justify-center">
-                            <a href="#">
+                            <button data-modal-target="editPekerja" data-modal-toggle="editPekerja">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
                                   </svg>      
-                            </a>
+                            </button>
                             <button data-modal-target="delete-modal" data-modal-toggle="delete-modal" type="button">
                                 <svg class="w-5 h-5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
@@ -139,17 +126,12 @@
                         <td class="px-6 py-4">
                             085357679796
                         </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Aktif
-                            </div>
-                        </td>
                         <td class="flex px-6 py-4 text-center justify-center">
-                            <a href="#">
+                            <button data-modal-target="editPekerja" data-modal-toggle="editPekerja">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
                                   </svg>      
-                            </a>
+                            </button>
                             <button data-modal-target="delete-modal" data-modal-toggle="delete-modal" type="button">
                                 <svg class="w-5 h-5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
@@ -175,17 +157,12 @@
                         <td class="px-6 py-4">
                             085357679796
                         </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
-                                Tidak Aktif
-                            </div>
-                        </td>
                         <td class="flex px-6 py-4 text-center justify-center">
-                            <a href="#">
+                            <button data-modal-target="editPekerja" data-modal-toggle="editPekerja">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
                                   </svg>      
-                            </a>
+                            </button>
                             <button data-modal-target="delete-modal" data-modal-toggle="delete-modal" type="button">
                                 <svg class="w-5 h-5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
@@ -200,6 +177,129 @@
     </div>
 </div>
 
+
+
+
+
+{{-- MODAL PEKERJA BARU --}}
+<!-- Main modal -->
+<div id="tambahPekerja" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-4xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    Tambah Pekerja
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="tambahPekerja">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+
+            <!-- Modal body -->
+            <form action="#" method="POST" class="max-w-3xl mx-auto my-5 pb-5" enctype="multipart/form-data">
+            @csrf
+
+                <div class="mb-5">
+                  <label for="nip" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIP</label>
+                  <input id="nip" name="nip" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan NIP" required>
+                </div>
+
+                <div class="mb-5">
+                  <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Pekerja</label>
+                  <input id="nama" name="nama" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan nama pekerja" required>
+                </div>
+
+                <div class="mb-5">
+                    <label for="jurusan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
+                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5">
+                        <option selected>Pilih Role</option>
+                        <option value="ADM">Admin</option>
+                        <option value="KS">Kepala Sekolah</option>
+                    </select>
+                </div>
+
+                <div class="mb-5">
+                    <label for="nomorTelpon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Telpon</label>
+                    <input id="nomorTelpon" name="nomorTelpon" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" placeholder="Masukkan nomor telpon" required>
+                </div>
+
+                <div class="mb-5">
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kata Sandi</label>
+                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" required="">
+                </div>
+
+                <div class="mb-5">
+                    <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Konfirmasi Kata Sandi</label>
+                    <input type="confirm-password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" required="">
+                </div>
+
+                <button type="submit" class="text-white bg-primary1 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Simpan</button>
+              </form>
+        </div>
+    </div>
+</div>
+
+{{-- MODAL EDIT PEKERJA --}}
+<!-- Main modal -->
+<div id="editPekerja" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-4xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    Edit Pekerja
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="editPekerja">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+
+            <!-- Modal body -->
+            <form action="#" method="POST" class="max-w-3xl mx-auto my-5 pb-5" enctype="multipart/form-data">
+            @csrf
+
+                <div class="mb-5">
+                  <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Pekerja</label>
+                  <input id="nama" name="nama" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" value="Fatah Zulkirom Fadhilan" required>
+                </div>
+
+                <div class="mb-5">
+                    <label for="jurusan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
+                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5">
+                        <option value="ADM" selected>Admin</option>
+                        <option value="KS">Kepala Sekolah</option>
+                    </select>
+                </div>
+
+                <div class="mb-5">
+                    <label for="nomorTelpon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Telpon</label>
+                    <input id="nomorTelpon" name="nomorTelpon" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700" value="085357679796" required>
+                </div>
+
+                <div class="mb-5">
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kata Sandi Baru</label>
+                    <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" placeholder="Diisi jika ingin mengganti kata sandi" required="">
+                </div>
+
+                <div class="mb-5">
+                    <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Konfirmasi Kata Sandi</label>
+                    <input type="confirm-password" name="confirm-password" id="confirm-password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" placeholder="Diisi jika ingin mengganti kata sandi" required="">
+                </div>
+
+                <button type="submit" class="text-white bg-primary1 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Simpan</button>
+              </form>
+        </div>
+    </div>
+</div>
 
 {{-- MODAL DELETE PEKERJA--}}
 <div id="delete-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">

@@ -85,7 +85,7 @@
           <hr />
           <!-- Tombol Keluar -->
           <div class="py-2">
-            <a href="/keluar" class="bg-primary1 text-white text-center px-6 py-1 rounded-full">
+            <a href="/keluar" class="bg-primary1 hover:bg-blue-800 duration-300 text-white text-center px-6 py-1 rounded-full">
               Keluar
             </a>
           </div>
