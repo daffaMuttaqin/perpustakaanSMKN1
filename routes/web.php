@@ -21,7 +21,7 @@ Route::get('/', [PublicController::class, 'index']);
 Route::get('/masuk', [AuthController::class, 'login'])->name('login');
 Route::post('/masuk', [AuthController::class, 'authenticating']);
 
-Route::middleware(['preventBackHistory','auth'])->group(function () {
+Route::middleware(['preventBackHistory', 'auth'])->group(function () {
 
     Route::get('/keluar', [AuthController::class, 'logout']);
 
@@ -79,28 +79,10 @@ Route::get('/dataLaporan', function () {
     return view('admin/dataLaporan', [
         "title" => "Laporan",
         "subJudul" => "Data Laporan",
-        "subJudul2" => "Bukti Setoran",
-        "subJudul3" => "Upload Laporan",
+        "subJudul2" => "",
+        "subJudul3" => "",
     ]);
 })->name('Data Laporan');
-
-Route::get('/buktiSetoran', function () {
-    return view('admin/buktiSetoran', [
-        "title" => "Laporan",
-        "subJudul" => "Data Laporan",
-        "subJudul2" => "Bukti Setoran",
-        "subJudul3" => "Upload Laporan",
-    ]);
-})->name('Bukti Setoran');
-
-Route::get('/uploadLaporan', function () {
-    return view('admin/uploadLaporan', [
-        "title" => "Laporan",
-        "subJudul" => "Data Laporan",
-        "subJudul2" => "Bukti Setoran",
-        "subJudul3" => "Upload Laporan",
-    ]);
-})->name('Upload Laporan');
 
 Route::get('/kepsek', function () {
     return view('kepsek/daftarLaporan', [

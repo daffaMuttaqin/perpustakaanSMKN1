@@ -1340,6 +1340,9 @@ input:checked + .toggle-bg{
 .max-w-md{
   max-width: 28rem;
 }
+.max-w-sm{
+  max-width: 24rem;
+}
 .flex-1{
   flex: 1 1 0%;
 }
@@ -1728,6 +1731,9 @@ input:checked + .toggle-bg{
 }
 .pt-5{
   padding-top: 1.25rem;
+}
+.ps-3\.5{
+  padding-inline-start: 0.875rem;
 }
 .text-left{
   text-align: left;
