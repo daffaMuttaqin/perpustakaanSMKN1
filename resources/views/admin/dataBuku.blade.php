@@ -36,7 +36,7 @@
                             Judul Buku
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Creator
+                            Penulis
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Penerbitan
@@ -65,7 +65,7 @@
                             @php echo($i++) @endphp
                         </th>
                         <td class="p-4">
-                            <img src="{{ asset('storage/cover-book/' . $item->cover) }}" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                            <img src="{{ asset('storage/cover-book/' . $item->cover) }}" class="w-16 md:w-32 max-w-full max-h-full" alt="Book">
                         </td>
                         <td class="px-6 py-4">
                             {{ $item->title }}
