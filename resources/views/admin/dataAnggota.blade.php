@@ -42,9 +42,6 @@
                             Nomor Telpon
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
-                            Status
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center">
                             Aksi
                         </th>
                     </tr>
@@ -66,11 +63,6 @@
                         </td>
                         <td class="px-6 py-4">
                             085357679796
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Aktif
-                            </div>
                         </td>
                         <td class="flex px-6 py-4 text-center justify-center">
                             <a href="#">
@@ -103,11 +95,6 @@
                         <td class="px-6 py-4">
                             085357679796
                         </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Aktif
-                            </div>
-                        </td>
                         <td class="flex px-6 py-4 text-center justify-center">
                             <a href="#">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -139,11 +126,6 @@
                         <td class="px-6 py-4">
                             085357679796
                         </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Aktif
-                            </div>
-                        </td>
                         <td class="flex px-6 py-4 text-center justify-center">
                             <a href="#">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -174,11 +156,6 @@
                         </td>
                         <td class="px-6 py-4">
                             085357679796
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
-                                Tidak Aktif
-                            </div>
                         </td>
                         <td class="flex px-6 py-4 text-center justify-center">
                             <a href="#">

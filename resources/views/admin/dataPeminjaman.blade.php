@@ -3,9 +3,6 @@
 {{-- KONTEN --}}
 <div class="w-full h-full">
     <div class="flex items-center gap-x-24">
-        {{-- Tambah Anggota --}}
-        <button class="text-lg text-white text-center ml-10 px-5 py-1 rounded-full bg-primary1 hover:bg-blue-800 duration-300">Ekspor</button>
-        
         {{-- Search Bar --}}
         <form class="w-5/12 z-10">
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>

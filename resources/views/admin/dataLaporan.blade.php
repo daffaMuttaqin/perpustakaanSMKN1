@@ -2,7 +2,10 @@
 @section('konten')
 {{-- KONTEN --}}
 <div class="w-full h-full">
-    <div class="flex items-center gap-x-24">        
+    <div class="flex items-center gap-x-24">
+        {{-- Button Ekspor --}}
+        <button class="text-lg text-white text-center ml-10 px-5 py-1 rounded-full bg-primary1 hover:bg-blue-800 duration-300">Ekspor</button>
+        
         {{-- Search Bar --}}
         <form class="w-5/12 z-10">
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
@@ -12,7 +15,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
                 </div>
-                <input type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian Transaksi" required>
+                <input type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian Data" required>
             </div>
         </form>
     </div>
@@ -37,9 +40,6 @@
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
                             Tanggal Kembali
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center">
-                            Total Pinjam
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
                             Denda
@@ -71,10 +71,7 @@
                             10/29/2023
                         </td>
                         <td class="px-6 py-4 text-center">
-                            2
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            Rp. 5000
+                            Rp. 25.000
                         </td>
                         <td class="px-6 py-4 text-center">
                             <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
@@ -113,10 +110,7 @@
                             -
                         </td>
                         <td class="px-6 py-4 text-center">
-                            2
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            Rp. 5000
+                            Rp. 25.000
                         </td>
                         <td class="px-6 py-4 text-center">
                             <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
@@ -153,9 +147,6 @@
                         </td>
                         <td class="px-6 py-4 text-center">
                             -
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            2
                         </td>
                         <td class="px-6 py-4 text-center">
                             -
@@ -195,9 +186,6 @@
                         </td>
                         <td class="px-6 py-4 text-center">
                             10/29/2023
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            2
                         </td>
                         <td class="px-6 py-4 text-center">
                             -
