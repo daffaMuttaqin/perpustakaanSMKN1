@@ -37,7 +37,19 @@ Route::get('/daftar', function () {
     return view('public/daftar', [
         "title" => "Daftar"
     ]);
-});
+})->name('Daftar');
+
+Route::get('/listBuku', function () {
+    return view('public/listBuku', [
+        "title" => "Data Siswa"
+    ]);
+})->name('Data Siswa');
+
+Route::get('/riwayat', function () {
+    return view('public/riwayat', [
+        "title" => "Data Siswa"
+    ]);
+})->name('Data Siswa');
 
 Route::get('/dataPeminjaman', function () {
     return view('admin/dataPeminjaman', [

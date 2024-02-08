@@ -15,7 +15,7 @@
                     <h1 style="color: #1E35AD">BUMI RATU NUBAN</h1>
                 </div>
                 <hr>
-                <h1 class="text-xl text-center tracking-widest my-6 font-robotoCondensed" style="color: #828282">SILAHKAN LOGIN</h1>
+                <h1 class="text-xl text-center tracking-widest my-6 font-robotoCondensed" style="color: #828282">SILAHKAN MASUK</h1>
                 <hr>
 
                 {{-- FORM LOGIN --}}
