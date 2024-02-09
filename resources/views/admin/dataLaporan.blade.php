@@ -146,14 +146,14 @@
                             10/26/2023
                         </td>
                         <td class="px-6 py-4 text-center">
-                            -
+                            10/29/2023
                         </td>
                         <td class="px-6 py-4 text-center">
                             -
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
-                                Terlambat
+                            <div class="px-5 py-1 text-sm text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                                Sudah Kembali
                             </div>
                         </td>
                         <td class="flex px-6 py-4 text-center justify-center">
@@ -185,14 +185,14 @@
                             10/26/2023
                         </td>
                         <td class="px-6 py-4 text-center">
-                            10/29/2023
+                            -
                         </td>
                         <td class="px-6 py-4 text-center">
                             -
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
-                                Terlambat
+                            <div class="px-5 py-1 text-sm text-blue-600 bg-blue-300 w-full rounded-full text-center font-medium hover:bg-blue-400 duration-300">
+                                Masih Dipinjam
                             </div>
                         </td>
                         <td class="flex px-6 py-4 text-center justify-center">
