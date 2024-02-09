@@ -27,7 +27,7 @@
                             No
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            ID Anggota
+                            NISN
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Nama Anggota
@@ -55,7 +55,7 @@
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             1
                         </th>
-                        <td class="p-4">
+                        <td class="px-6">
                             P123
                         </td>
                         <td class="px-6 py-4">
@@ -96,7 +96,7 @@
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             2
                         </th>
-                        <td class="p-4">
+                        <td class="px-6">
                             P123
                         </td>
                         <td class="px-6 py-4">
@@ -137,7 +137,7 @@
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             3
                         </th>
-                        <td class="p-4">
+                        <td class="px-6">
                             P123
                         </td>
                         <td class="px-6 py-4">
@@ -178,7 +178,7 @@
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             4
                         </th>
-                        <td class="p-4">
+                        <td class="px-6">
                             P123
                         </td>
                         <td class="px-6 py-4">
