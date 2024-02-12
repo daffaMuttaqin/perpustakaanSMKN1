@@ -3,7 +3,7 @@
 <div class="h-22 w-full bg-primary1">
     <div class="flex h-full items-center">
       <!-- Judul -->
-      <div class="mt-4 px-5 text-white font-medium text-3xl"> Data Siswa</div>
+      <div class="mt-4 px-5 text-white font-medium text-2xl lg:text-3xl"> Data Siswa</div>
     </div>
 </div>
 <div class="w-full px-5">
@@ -14,13 +14,16 @@
         <a href="/riwayat" class="font-medium text-base text-fontSubJudul px-5 py-1 ml-11 hover:scale-105 hover:text-primary1 rounded-full hover:bg-bgSubJudul duration-300">
             Riwayat
         </a>
+        <a href="/profil" class="font-medium text-base text-fontSubJudul px-5 py-1 ml-11 hover:scale-105 hover:text-primary1 rounded-full hover:bg-bgSubJudul duration-300">
+            Profil
+        </a>
     </div>
 
     <div class="w-full h-full bg-white rounded-lg">
 
         <div class="flex items-center mx-5 py-5">
             {{-- Search Bar --}}
-            <form class="w-5/12 z-10">
+            <form class="lg:w-5/12 w-full z-10">
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">

@@ -51,6 +51,12 @@ Route::get('/riwayat', function () {
     ]);
 })->name('Data Siswa');
 
+Route::get('/profil', function () {
+    return view('public/profil', [
+        "title" => "Profil"
+    ]);
+})->name('Profil');
+
 Route::get('/dataPeminjaman', function () {
     return view('admin/dataPeminjaman', [
         "title" => "Data Buku",
