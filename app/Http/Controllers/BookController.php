@@ -32,16 +32,6 @@ class BookController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -54,37 +44,29 @@ class BookController extends Controller
         if ($request->file('cover')) {
             $extension = $request->file('cover')->getClientOriginalExtension();
             $newName = $request->title . '-' . now()->timestamp . '.' . $extension;
-            $path = $request->file('cover')->storeAs('public/cover-book', $newName); // Catch the path Laravel stored.
+            $path = $request->file('cover')->storeAs('public/cover-book', $newName);
         }
 
-        $data['codeBook'] = Str::random(20);
+        $book = Book::latest()->first();
+        $slug = "BUKU";
 
-        $data['cover'] = basename($path); // Suggest save filename.ext only, if you need origin path just remove basename function.
+        if ($book == null) {
+            $number = "0001";
+        } else {
+
+            $explode = explode("-", $book->codeBook);
+            $number = intval($explode[1]) + 1;
+            $number = str_pad($number, 4, "0", STR_PAD_LEFT);
+        }
+
+        $codeBook = $slug . '-' . $number;
+
+        $data['codeBook'] = $codeBook;
+
+        $data['cover'] = basename($path);
         Book::create($data);
 
         return redirect('/dataBuku');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Book $book)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Book $book)
-    {
-        //
     }
 
     /**
@@ -94,9 +76,28 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, $id)
     {
-        //
+
+        $data = $request->all();
+
+        if ($request->hasFile('cover')){
+
+            $extension = $request->file('cover')->getClientOriginalExtension();
+            $newName = $request->title . '-' . now()->timestamp . '.' . $extension;
+            $path = $request->file('cover')->storeAs('public/cover-book', $newName);
+
+            $oldCover = Book::where('id', $id)->first()->cover;
+            $deleteOldCover = Storage::delete('public/cover-book/' . $oldCover);
+
+            $data['cover'] = basename($path);
+        }
+        
+        $book = Book::find($id);
+
+        $book->update($data);
+
+        return redirect('/dataBuku');
     }
 
     /**
@@ -106,7 +107,6 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($book)
-    
     {
         $imageName = Book::find($book);
 
