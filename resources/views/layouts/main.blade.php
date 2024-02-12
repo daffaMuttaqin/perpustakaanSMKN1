@@ -2,7 +2,7 @@
 @include('partials.header')
     
 <!-- Navbar -->
-<nav class="flex fixed z-50 h-22 w-full px-7 bg-primary1 justify-between shadow-xl inset-0">
+<nav class="flex fixed z-40 h-22 w-full px-7 bg-primary1 justify-between shadow-xl inset-0">
   <!-- Bagian Kiri Logo dan Nama Sekolah -->
   <div class="flex items-center">
     <!-- Logo -->
