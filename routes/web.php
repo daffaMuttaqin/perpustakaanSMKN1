@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +17,20 @@ use App\Http\Controllers\BookController;
 |
 */
 
-Route::get('/', [PublicController::class, 'index']);
+Route::get('/', [PublicController::class, 'index'])->name('login');
 
-Route::get('/masuk', [AuthController::class, 'login'])->name('login');
-Route::post('/masuk', [AuthController::class, 'authenticating']);
+Route::middleware(['guest'])->group(function () {
+    Route::get('/masuk', [AuthController::class, 'login']);
+    Route::post('/masuk', [AuthController::class, 'authenticating']);
+    Route::get('/daftar', [AuthController::class, 'register'])->name('Daftar');
+    Route::post('/daftar', [AuthController::class, 'store']);
+});
 
 Route::middleware(['preventBackHistory', 'auth'])->group(function () {
 
     Route::get('/keluar', [AuthController::class, 'logout']);
+
+    Route::get('/listBuku', [StudentController::class, 'index'])->name('Data Siswa');
 
     Route::middleware(['onlyAdmin'])->group(function () {
 
@@ -33,18 +40,6 @@ Route::middleware(['preventBackHistory', 'auth'])->group(function () {
         Route::get('/hapusBuku/{id}', [BookController::class, 'destroy']);
     });
 });
-
-Route::get('/daftar', function () {
-    return view('public/daftar', [
-        "title" => "Daftar"
-    ]);
-})->name('Daftar');
-
-Route::get('/listBuku', function () {
-    return view('public/listBuku', [
-        "title" => "Data Siswa"
-    ]);
-})->name('Data Siswa');
 
 Route::get('/riwayat', function () {
     return view('public/riwayat', [

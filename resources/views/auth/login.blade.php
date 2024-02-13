@@ -20,7 +20,7 @@
 
                 {{-- FORM LOGIN --}}
                 <form id="formLogin" action="/masuk" method="POST">
-                @csrf 
+                @csrf
                     {{-- Input Username --}}
                     <input type="text" id="username" name="username" class="bg-gray-50 mt-6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" placeholder="Nama Pengguna">
 

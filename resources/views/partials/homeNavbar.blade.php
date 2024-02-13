@@ -23,8 +23,14 @@
   
     <!-- Bagian Kanan Notifikasi dan Avatar -->
     <div class="flex items-center">
+
+      @if (Auth::guest())
       <!-- Tombol Masuk -->
-      <a href="/masuk" class="font-semibold lg:text-xl scale-90 lg:scale-100 text-lg text-white border-2 border-white px-4 rounded-full hover:scale-110 duration-300">Admin</a>
+      <a href="/masuk" class="font-semibold lg:text-xl scale-90 lg:scale-100 text-lg text-white border-2 border-white px-4 rounded-full hover:scale-110 duration-300">Masuk</a>
+      @else (Auth::user()->role == "Student")
+      <!-- Tombol Masuk -->
+      <a href="/keluar" class="font-semibold lg:text-xl scale-90 lg:scale-100 text-lg text-white border-2 border-white px-4 rounded-full hover:scale-110 duration-300">Keluar</a>
+      @endif
     </div>
 </nav>
 

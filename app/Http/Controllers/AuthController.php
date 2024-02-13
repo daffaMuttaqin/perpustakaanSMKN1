@@ -14,6 +14,10 @@ class AuthController extends Controller
         return view ('auth.login', ["title" => "Masuk"]);
     }
 
+    public function register () {
+        return view('public.daftar', ["title" => "Daftar"]);
+    }
+
     public function authenticating(Request $request){
 
         $credentials = $request->validate([
@@ -28,16 +32,34 @@ class AuthController extends Controller
             if (Auth::user()->role == "Admin") {
                 return redirect('/dataBuku');
             }
+            
+            if (Auth::user()->role == "Student") {
+                return redirect('/listBuku');
+            }
 
         }
         
-        return redirect('/masuk');
+        return redirect('/');
         
+    }
+
+    public function store(Request $request) {
+        $data = $request->all();
+
+        $data['password'] = Hash::make($data['password']);
+
+        $data['nip'] = "";
+        $data['role'] = "Student";
+        $data['avatar'] = "";
+        
+        User::create($data);
+
+        return redirect('/');
     }
 
     public function logout(){
         Auth::logout();
-        return redirect('/masuk');
+        return redirect('/');
 
     }
 }

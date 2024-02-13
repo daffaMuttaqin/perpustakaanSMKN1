@@ -17,7 +17,6 @@ class OnlyAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        
         if(Auth::user()->role != "Admin"){
             return redirect('/');
         }

@@ -83,7 +83,7 @@
                             {{ $item->stock }}
                         </td>
                         <td class="px-6 py-4">
-                            @if ( $item->stock == 0 )
+                            @if ($item->stock == 0)
                             <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                 Tidak Tersedia
                             </div>

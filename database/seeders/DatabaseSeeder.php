@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'password' => '$2y$10$xpNiLr7I8m1XX3dx64a10.BH0JO6DCth73DvEXQGkzdGrFZhGbgzm',
             'phone' => '081232123212',
+            'jurusan' => '',
             'role' => 'Admin',
             'avatar' => 'batman.png'
         ]);
