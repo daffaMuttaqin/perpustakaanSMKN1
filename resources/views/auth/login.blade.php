@@ -22,14 +22,23 @@
                 <form id="formLogin" action="/masuk" method="POST">
                 @csrf
                     {{-- Input Username --}}
-                    <input type="text" id="username" name="username" class="bg-gray-50 mt-6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" placeholder="Nama Pengguna">
+                    <input type="text" id="username" name="username" class="bg-gray-50 mt-6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" placeholder="Nama pengguna atau NISN">
 
                     {{-- Input Password --}}
                     <input type="password" id="password" name="password" class="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5" placeholder="Kata sandi">
 
                     {{-- Tombol Lupa Sandi --}}
-                    <div class="mt-3">
-                        Lupa <button class="text-primary1 hover:underline duration-300" data-modal-target="kata-sandi-modal" data-modal-toggle="kata-sandi-modal" type="button">Kata Sandi</button>?
+                    <div class="flex justify-between">
+                        {{-- Lupa Password --}}
+                        <div class="mt-3">
+                            Lupa <button class="text-primary1 hover:underline duration-300" data-modal-target="kata-sandi-modal" data-modal-toggle="kata-sandi-modal" type="button">Kata Sandi</button>?
+                        </div>
+
+                        {{-- Daftar --}}
+                        <div class="mt-3">
+                            Tidak punya akun? <a href="/daftar" class="text-primary1 hover:underline duration-300">Daftar</a>
+                        </div>
+
                     </div>
                     
                     {{-- Button Submit --}}
@@ -64,7 +73,7 @@
             <!-- Modal body -->
             <div class="p-4 md:p-5 space-y-4">
                 <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    Silahkan menghubungi administrator yang lain untuk melakukan penggantian kata sandi
+                    Silahkan menghubungi Admin untuk melakukan penggantian kata sandi
                 </p>
             </div>
         </div>

@@ -1038,6 +1038,9 @@ input:checked + .toggle-bg{
   top: 0px;
   bottom: 0px;
 }
+.-top-32{
+  top: -8rem;
+}
 .bottom-0{
   bottom: 0px;
 }
@@ -1070,6 +1073,21 @@ input:checked + .toggle-bg{
 }
 .top-32{
   top: 8rem;
+}
+.-top-5{
+  top: -1.25rem;
+}
+.-top-3{
+  top: -0.75rem;
+}
+.-top-2{
+  top: -0.5rem;
+}
+.-top-1{
+  top: -0.25rem;
+}
+.top-16{
+  top: 4rem;
 }
 .z-10{
   z-index: 10;
@@ -1184,11 +1202,14 @@ input:checked + .toggle-bg{
 .mt-6{
   margin-top: 1.5rem;
 }
-.mt-8{
-  margin-top: 2rem;
-}
 .mt-9{
   margin-top: 2.25rem;
+}
+.mt-32{
+  margin-top: 8rem;
+}
+.mt-28{
+  margin-top: 7rem;
 }
 .block{
   display: block;
@@ -1263,8 +1284,24 @@ input:checked + .toggle-bg{
 .h-screen{
   height: 100vh;
 }
+.h-5\/6{
+  height: 83.333333%;
+}
+.h-1\/2{
+  height: 50%;
+}
 .max-h-full{
   max-height: 100%;
+}
+.max-h-96{
+  max-height: 24rem;
+}
+.max-h-svh{
+  max-height: 100svh;
+}
+.max-h-fit{
+  max-height: -moz-fit-content;
+  max-height: fit-content;
 }
 .w-1\/2{
   width: 50%;
@@ -1322,6 +1359,18 @@ input:checked + .toggle-bg{
 }
 .w-full{
   width: 100%;
+}
+.w-3\/12{
+  width: 25%;
+}
+.w-10\/12{
+  width: 83.333333%;
+}
+.w-8\/12{
+  width: 66.666667%;
+}
+.w-6\/12{
+  width: 50%;
 }
 .max-w-3xl{
   max-width: 48rem;
@@ -1414,9 +1463,6 @@ input:checked + .toggle-bg{
 }
 .place-items-center{
   place-items: center;
-}
-.content-center{
-  align-content: center;
 }
 .items-start{
   align-items: flex-start;
@@ -2202,12 +2248,20 @@ input:checked + .toggle-bg{
     margin-top: 2.5rem;
   }
 
-  .md\:h-screen{
-    height: 100vh;
+  .md\:mt-16{
+    margin-top: 4rem;
   }
 
   .md\:w-32{
     width: 8rem;
+  }
+
+  .md\:w-5\/12{
+    width: 41.666667%;
+  }
+
+  .md\:w-6\/12{
+    width: 50%;
   }
 
   .md\:space-y-6 > :not([hidden]) ~ :not([hidden]){
@@ -2220,6 +2274,14 @@ input:checked + .toggle-bg{
     padding: 1.25rem;
   }
 
+  .md\:pt-16{
+    padding-top: 4rem;
+  }
+
+  .md\:pt-10{
+    padding-top: 2.5rem;
+  }
+
   .md\:text-2xl{
     font-size: 1.5rem;
     line-height: 2rem;
@@ -2227,8 +2289,16 @@ input:checked + .toggle-bg{
 }
 @media (min-width: 1024px){
 
+  .lg\:top-0{
+    top: 0px;
+  }
+
   .lg\:ml-0{
     margin-left: 0px;
+  }
+
+  .lg\:mt-0{
+    margin-top: 0px;
   }
 
   .lg\:w-1\/2{
