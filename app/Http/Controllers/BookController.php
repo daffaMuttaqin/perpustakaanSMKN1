@@ -6,7 +6,6 @@ use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
