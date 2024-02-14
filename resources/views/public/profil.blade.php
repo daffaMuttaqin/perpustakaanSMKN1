@@ -25,16 +25,16 @@
             <hr>
             <div class="lg:w-3/4 w-full mt-5 grid grid-cols-2 gap-y-4 pb-5">
                 <div>NISN</div>
-                <div>: 7268768</div>
+                <div>: {{ Auth::user()->username }}</div>
 
                 <div>Nama</div>
-                <div>: Ahmad Abdullah</div>
+                <div>: {{ Auth::user()->name }}</div>
 
                 <div>Jurusan</div>
-                <div>: Teknik Kendaraan Ringan</div>
+                <div>: {{ Auth::user()->jurusan }}</div>
 
                 <div>Nomor Telpon</div>
-                <div>: 085357679796</div>
+                <div>: {{ Auth::user()->phone }}</div>
             </div>
         </div>
     </div>

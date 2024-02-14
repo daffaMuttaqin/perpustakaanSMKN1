@@ -73,7 +73,7 @@
                     </thead>
                     <tbody>
                     @php $i = 1 @endphp
-                    {{-- @foreach ($books as $item) --}}
+                    @foreach ($books as $item)
     
                         {{-- Data  --}}
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -81,40 +81,33 @@
                                 @php echo($i++) @endphp
                             </th>
                             <td class="p-4">
-                                {{-- <img src="{{ asset('storage/cover-book/' . $item->cover) }}" class="w-16 mx-auto md:w-32 max-w-full max-h-full" alt="Book"> --}}
-
-                                <img src="{{ asset('storage/cover-book/Tatsumaki-1707282262.jpg') }}" class="w-16 mx-auto md:w-32 max-w-full max-h-full" alt="Book">
+                                <img src="{{ asset('storage/cover-book/' . $item->cover) }}" class="w-16 mx-auto md:w-32 max-w-full max-h-full" alt="Book">
                             </td>
                             <td class="px-6 py-4">
-                                {{-- {{ $item->title }} --}}
-                                Pendidikan Agama Islam dan Budi Pekerti
+                                {{ $item->title }}
                             </td>
                             <td class="px-6 py-4 text-center">
-                                {{-- {{ $item->creator }} --}}
-                                H. Abd. Rahman
+                                {{ $item->creator }}
                             </td>
                             <td class="px-6 py-4 text-center">
-                                {{-- {{ $item->publisher }} --}}
-                                Erlangga
+                                {{ $item->publisher }}
                             </td>
                             <td class="px-6 py-4 text-center">
-                                {{-- {{ $item->ISBN}} --}}
-                                297.73 PENCB-D.09 2016-14494
+                                {{ $item->ISBN}}
                             </td>
                             <td class="px-6 py-4 text-center">
-                                {{-- {{ $item->stock }} --}}
-                                30
+                                {{ $item->stock }}
                             </td>
                             <td class="px-6 py-4">
-                                {{-- @if ($item->stock == 0)
+                                @if ($item->stock == 0)
                                 <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                     Tidak Tersedia
                                 </div>
-                                @else --}}
+                                @else
                                 <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                     Tersedia
                                 </div>
-                                {{-- @endif --}}
+                                @endif
                             </td>
                             <td class="px-6 py-4 text-center justify-center">
                                 <button data-modal-target="pinjam-modal" data-modal-toggle="pinjam-modal" type="button" class="px-5 py-1 text-blue-600 bg-blue-300 w-full rounded-full text-center font-medium hover:bg-blue-400 duration-300">
@@ -123,7 +116,7 @@
                             </td>
                         </tr>
     
-                    {{-- @endforeach --}}
+                    @endforeach
     
                     </tbody>
                 </table>

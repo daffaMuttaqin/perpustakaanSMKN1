@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -10,16 +11,22 @@ use Illuminate\Support\Facades\Session;
 
 class StudentController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->title) {
+            $books = Book::where('title', 'like', '%' . $request->title . '%')->get();
+        }
+        else {
+            $books = Book::all();
+        }
+
         return view('public.listBuku', [
-            "title" => "Data Siswa"
+            "title" => "Data Siswa",'books' => $books
         ]);
     }
 
