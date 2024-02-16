@@ -4,7 +4,7 @@
 <div class="w-full h-full">
     <div class="flex items-center gap-x-24">
         {{-- Button Ekspor --}}
-        <button class="text-lg text-white text-center ml-10 px-5 py-1 rounded-full bg-primary1 hover:bg-blue-800 duration-300">Ekspor</button>
+        <a href="/ekspor" target="_blank" class="text-lg text-white text-center ml-10 px-5 py-1 rounded-full bg-primary1 hover:bg-blue-800 duration-300">Ekspor</a>
         
         {{-- Search Bar --}}
         <form class="w-5/12 z-10">

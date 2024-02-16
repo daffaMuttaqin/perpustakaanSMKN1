@@ -30,7 +30,7 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/daftar', [AuthController::class, 'store']);
 });
 
-Route::middleware(['preventBackHistory', 'auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/keluar', [AuthController::class, 'logout']);
 
@@ -68,6 +68,8 @@ Route::middleware(['preventBackHistory', 'auth'])->group(function () {
         Route::get('/dataLaporan', [BookRentController::class, 'index'])->name('Data Laporan');
         Route::put('/updateDataLaporan/{id}', [BookRentController::class, 'update']);
         Route::get('/hapusDataLaporan/{id}', [BookRentController::class, 'destroy']);
+
+        Route::get('/ekspor', [RentLogController::class, 'export']);
         
         Route::get('/kepsek', function () {
             return view('kepsek.daftarLaporan', [
