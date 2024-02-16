@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\OnlyAdmin;
+use App\Http\Middleware\OnlyStudent;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -66,5 +67,11 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'preventBackHistory' => \App\Http\Middleware\PreventBackHistory::class,
         'onlyAdmin' => OnlyAdmin::class,
+        'onlyStudent' => OnlyStudent::class,
     ];
+
+    protected $commands = [
+        \App\Console\Commands\UpdateBookReturn::class,
+    ];
+    
 }

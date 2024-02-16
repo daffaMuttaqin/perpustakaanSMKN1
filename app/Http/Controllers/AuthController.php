@@ -39,7 +39,7 @@ class AuthController extends Controller
 
         }
         
-        return redirect('/');
+        return redirect('/masuk');
         
     }
 
@@ -54,7 +54,7 @@ class AuthController extends Controller
         
         User::create($data);
 
-        return redirect('/');
+        return redirect('/masuk');
     }
 
     public function logout(){

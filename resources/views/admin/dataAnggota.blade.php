@@ -47,13 +47,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                @php $i = 1 @endphp
-                @foreach ($users as $item)
-
-                    {{-- Data 1 --}}
+                @forelse ($users as $item)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            @php echo($i++) @endphp
+                            {{ $loop->iteration }}
                         </th>
                         <td class="px-6">
                             {{ $item->username }}
@@ -80,7 +77,13 @@
                             </button>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            Data tidak ditemukan
+                        </th>
+                    </tr>
+                @endforelse
                 
                 </tbody>
             </table>
@@ -151,8 +154,9 @@
     </div>
 </div>
 
-@foreach ($users as $item)
+
 {{-- MODAL EDIT ANGGOTA --}}
+@foreach ($users as $item)
 <!-- Main modal -->
 <div id="editAnggota{{ $item->id }}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-4xl max-h-full">
