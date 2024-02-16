@@ -12,7 +12,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
                 </div>
-                <input type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian Data" required>
+                <input name="title" type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian Data" required>
             </div>
         </form>
     </div>
@@ -42,110 +42,43 @@
                             Penerbit
                         </th>
                         <th scope="col" class="px-6 py-3 text-center">
-                            Tanggal
+                            Tanggal Pinjam
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     {{-- Data 1 --}}
+                    @forelse ($rents as $item)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            1
+                            {{ $loop->iteration }}
                         </th>
                         <td class="px-6">
-                            2914
+                            {{ $item->user->username }}
                         </td>
                         <td class="px-6 py-4">
-                            Ruslan Ismail
+                            {{ $item->user->name }}
                         </td>
                         <td class="px-6 py-4">
-                            Tere Liye Bumi Series
+                            {{ $item->book->title }}
                         </td>
                         <td class="px-6 py-4 text-center">
-                            Tere Liye
+                            {{ $item->book->creator }}
                         </td>
                         <td class="px-6 py-4 text-center">
-                            Tere Liye
+                            {{ $item->book->publisher }}
                         </td>
                         <td class="px-6 py-4 text-center">
-                            10/26/2022
+                            {{ $item->rentDate }}
                         </td>
                     </tr>
-
-                    {{-- Data 2 --}}
+                @empty
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            2
+                            Data Tidak Ada
                         </th>
-                        <td class="px-6">
-                            2914
-                        </td>
-                        <td class="px-6 py-4">
-                            Ruslan Ismail
-                        </td>
-                        <td class="px-6 py-4">
-                            Tere Liye Bumi Series
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            Tere Liye
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            Tere Liye
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            10/26/2022
-                        </td>
                     </tr>
-
-                    {{-- Data 3 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            3
-                        </th>
-                        <td class="px-6">
-                            2914
-                        </td>
-                        <td class="px-6 py-4">
-                            Ruslan Ismail
-                        </td>
-                        <td class="px-6 py-4">
-                            Tere Liye Bumi Series
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            Tere Liye
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            Tere Liye
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            10/26/2022
-                        </td>
-                    </tr>
-
-                    {{-- Data 4 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            4
-                        </th>
-                        <td class="px-6">
-                            2914
-                        </td>
-                        <td class="px-6 py-4">
-                            Ruslan Ismail
-                        </td>
-                        <td class="px-6 py-4">
-                            Tere Liye Bumi Series
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            Tere Liye
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            Tere Liye
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            10/26/2022
-                        </td>
-                    </tr>
+                @endforelse
 
                 </tbody>
             </table>

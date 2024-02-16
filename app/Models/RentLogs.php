@@ -18,6 +18,7 @@ class RentLogs extends Model
         'returnDate',
         'status',
         'penalty',
+        'actualReturnDate',
     ];
 
 

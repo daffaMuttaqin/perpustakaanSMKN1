@@ -7,22 +7,23 @@ use Illuminate\Http\Request;
 
 class RentLogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::where('id', '!=', 1)->where('status', '=', 'active')->get();
-        $books = Book::all();
-        
-        if ($request->title) {
-            $rents = RentLogs::where('userId', 'like', '%' . $request->title . '%')->get();
+        $title = $request->title;
+
+        if ($title) {
+            $rents = RentLogs::with(['user', 'book'])->whereHas('user', function($query) use ($title) {
+                $query->where('username', 'like', '%' . $title . '%');
+            })->get();
         }
         else {
-            $rents = RentLogs::with(['user', 'book']);
+            $rents = RentLogs::with(['user', 'book'])->get();
         }
 
-        return view('admin.transaksi', [
-            "title" => "Transaksi",
-            "subJudul" => "Transaksi Buku",
-            "subJudul2" => "",
+        return view('admin.dataPeminjaman', [
+            "title" => "Data Buku",
+            "subJudul" => "Data Buku",
+            "subJudul2" => "Data Peminjaman",
             "subJudul3" => "", 'rents' => $rents
         ]);
     }

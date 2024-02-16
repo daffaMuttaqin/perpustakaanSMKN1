@@ -108,7 +108,8 @@
                             Data Tidak Ditemukan
                         </th>
                     </tr>
-                    @endforelse                    
+                    
+                    @endforelse
 
                 </tbody>
             </table>
@@ -132,7 +133,7 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                 </svg>
                 <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah anda yakin?</h3>
-                <a href="/hapusLaporan/{{ $item->id }}" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2">
+                <a href="/hapusDataLaporan/{{ $item->id }}" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2">
                     Hapus Data
                 </a>
                 <button data-modal-hide="delete-modal{{ $item->id }}" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Batalkan</button>
@@ -159,13 +160,14 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form action="/updateLaporan/{{ $item->id }}" method="POST" class="p-4 md:p-5">
+            <form action="/updateDataLaporan/{{ $item->id }}" method="POST" class="p-4 md:p-5">
             @csrf
             @method('PUT')
 
                 <div>
                     <div class="text-center">
-                        <select id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5">
+                        <select name="status" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5">
+                            <option>Pilih Aksi</option>
                             <option value="Sudah Kembali">Sudah Kembali</option>
                         </select>
                     </div>
@@ -178,7 +180,7 @@
             </form>
         </div>
     </div>
-</div> 
+</div>
 @endforeach
 
 {{-- END KONTEN --}}

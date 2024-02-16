@@ -12,6 +12,45 @@ use Illuminate\Support\Facades\Session;
 
 class BookRentUserController extends Controller
 {
+    public function index(Request $request)
+    {
+        $title = $request->title;
+
+        if ($title) {
+            $rents = RentLogs::with(['user', 'book'])->whereHas('user', function($query) use ($title) {
+                $query->where('username', 'like', '%' . $title . '%');
+            })->where('status', '=', 'Menunggu')->get();
+        }
+        else {
+            $rents = RentLogs::with(['user', 'book'])->where('status', '=', 'Menunggu')->get();
+        }
+
+        return view('admin.transaksi', [
+            "title" => "Transaksi",
+            "subJudul" => "Transaksi Buku",
+            "subJudul2" => "",
+            "subJudul3" => "", 'rents' => $rents
+        ]);
+    }
+
+    public function decline($id)
+    {
+        $status = 'Ditolak';
+
+        RentLogs::find($id)->update(['status' => $status]);
+
+        return redirect('/transaksi');
+    }
+
+    public function accept(Request $request, $id)
+    {
+        $status = 'Masih Dipinjam';
+
+        RentLogs::find($id)->update(['status' => $status, 'returnDate' => $request->returnDate]);
+
+        return redirect('/transaksi');
+    }
+    
     public function store(Request $request)
     {
         $user = Auth::user();

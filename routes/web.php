@@ -8,6 +8,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookRentUserController;
 use App\Http\Controllers\BookRentController;
+use App\Http\Controllers\RentLogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,14 +48,7 @@ Route::middleware(['preventBackHistory', 'auth'])->group(function () {
         Route::put('/updateBuku/{id}', [BookController::class, 'update']);
         Route::get('/hapusBuku/{id}', [BookController::class, 'destroy']);
 
-        Route::get('/dataPeminjaman', function () {
-        return view('admin/dataPeminjaman', [
-            "title" => "Data Buku",
-            "subJudul" => "Data Buku",
-            "subJudul2" => "Data Peminjaman",
-            "subJudul3" => "",
-        ]);
-        })->name('Data Peminjaman');
+        Route::get('/dataPeminjaman', [RentLogController::class, 'index'])->name('Data Peminjaman');
     
         Route::get('/dataAnggota', [UserController::class, 'indexStudent'])->name('Data Anggota Perpustakaan');
         Route::post('/tambahAnggota', [UserController::class, 'storeStudent']);
@@ -66,13 +60,13 @@ Route::middleware(['preventBackHistory', 'auth'])->group(function () {
         Route::put('/updatePekerja/{id}', [UserController::class, 'updateAdmin']);
         Route::get('/hapusPekerja/{id}', [UserController::class, 'destroyAdmin']);
         
-        Route::get('/transaksi', [BookRentController::class, 'index'])->name('Transaksi Buku');
+        Route::get('/transaksi', [BookRentUserController::class, 'index'])->name('Transaksi Buku');
 
-        Route::put('/tolakPinjam/{id}', [BookRentController::class, 'decline']);
-        Route::put('/terimaPinjam/{id}', [BookRentController::class, 'accept']);
+        Route::put('/tolakPinjam/{id}', [BookRentUserController::class, 'decline']);
+        Route::put('/terimaPinjam/{id}', [BookRentUserController::class, 'accept']);
         
-        Route::get('/dataLaporan', [BookRentController::class, 'report'])->name('Data Laporan');
-        Route::put('/updateLaporan/{id}', [BookRentController::class, 'update']);
+        Route::get('/dataLaporan', [BookRentController::class, 'index'])->name('Data Laporan');
+        Route::put('/updateDataLaporan/{id}', [BookRentController::class, 'update']);
         Route::get('/hapusDataLaporan/{id}', [BookRentController::class, 'destroy']);
         
         Route::get('/kepsek', function () {
