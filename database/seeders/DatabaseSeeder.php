@@ -28,6 +28,28 @@ class DatabaseSeeder extends Seeder
             'avatar' => 'batman.png'
         ]);
 
+        User::create([
+            'nip' => '',
+            'name' => 'Dummy Student',
+            'username' => '123',
+            'password' => '$2y$10$xpNiLr7I8m1XX3dx64a10.BH0JO6DCth73DvEXQGkzdGrFZhGbgzm',
+            'phone' => '081232123212',
+            'jurusan' => 'TKJ',
+            'role' => 'Student',
+            'avatar' => ''
+        ]);
+
+        User::create([
+            'nip' => '',
+            'name' => 'Dummy Student 2',
+            'username' => '321',
+            'password' => '$2y$10$xpNiLr7I8m1XX3dx64a10.BH0JO6DCth73DvEXQGkzdGrFZhGbgzm',
+            'phone' => '081232123212',
+            'jurusan' => 'TKJ',
+            'role' => 'Student',
+            'avatar' => ''
+        ]);
+
         Book::create([
             'codeBook' => 'A-001',
             'title' => 'Pulang',
@@ -35,7 +57,7 @@ class DatabaseSeeder extends Seeder
             'publisher' => 'Terelie',
             'ISBN' => '297.73 PEN CB-D.09 2016-14494',
             'stock' => '10',
-            'cover' => 'buku-1.jpg',
+            'cover' => 'Pulang-1708073608.jpg',
         ]);
 
         Book::create([
@@ -44,8 +66,8 @@ class DatabaseSeeder extends Seeder
             'creator' => 'Terelie',
             'publisher' => 'Terelie',
             'ISBN' => '297.73 PEN CB-D.09 20973-23563',
-            'stock' => '0',
-            'cover' => 'buku-2.jpg',
+            'stock' => '2',
+            'cover' => 'Pergi-1708073615.jpg',
         ]);
     }
 }

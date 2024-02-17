@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class OnlyAdmin
+class OnlyStudent
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class OnlyAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->role != "Admin"){
+        if(Auth::user()->role != "Student"){
             return redirect('/masuk');
         }
 

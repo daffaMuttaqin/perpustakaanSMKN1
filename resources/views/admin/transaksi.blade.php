@@ -12,7 +12,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
                 </div>
-                <input type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian Transaksi" required>
+                <input type="search" name="title" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian Transaksi" required>
             </div>
         </form>
     </div>
@@ -50,169 +50,62 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- Data 1 --}}
+                @forelse ($rents as $item)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            1
+                            {{ $loop->iteration }}
                         </th>
                         <td class="px-6">
-                            P123
+                            {{ $item->user->username }}
                         </td>
                         <td class="px-6 py-4">
-                            Ruslan Ismail
+                            {{ $item->user->name }}
                         </td>
                         <td class="px-6 py-4 text-center">
-                            TKJ
+                            {{ $item->user->jurusan }}
                         </td>
                         <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
+                            {{ $item->book->title }}
                         </td>
                         <td class="px-6 py-4 text-center">
-                            10/26/2022
+                            {{ $item->rentDate }}
                         </td>
                         <td class="px-6 py-4 text-center">
+                        <form action="/terimaPinjam/{{ $item->id }}" method="POST">
+                        @csrf
+                        @method('PUT')
                             <div class="relative max-w-sm">
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                       <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                     </svg>
                                 </div>
-                                <input datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                                <input name="returnDate" datepicker datepicker-autohide datepicker-format="yyyy-mm-dd" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                             </div>
                         </td>
                         <td class="px-6 py-4 text-center flex gap-x-2">
-                            <button class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                            <button type="submit" class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
                                 Terima
                             </button>
+                        </form>
 
-                            <button class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
+                        <form action="/tolakPinjam/{{ $item->id }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                            <button type="submit" class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                 Tolak
                             </button>
+                        </form>
                         </td>
                     </tr>
+                @empty
 
-                    {{-- Data 2 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            2
+                            Tidak Ada Data
                         </th>
-                        <td class="px-6">
-                            P123
-                        </td>
-                        <td class="px-6 py-4">
-                            Ruslan Ismail
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            TKJ
-                        </td>
-                        <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            10/26/2022
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <div class="relative max-w-sm">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                   <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                                    </svg>
-                                </div>
-                                <input datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-center flex gap-x-2">
-                            <button class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Terima
-                            </button>
-
-                            <button class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
-                                Tolak
-                            </button>
-                        </td>
                     </tr>
-
-                    {{-- Data 3 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            3
-                        </th>
-                        <td class="px-6">
-                            P123
-                        </td>
-                        <td class="px-6 py-4">
-                            Ruslan Ismail
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            TKJ
-                        </td>
-                        <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            10/26/2022
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <div class="relative max-w-sm">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                   <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                                    </svg>
-                                </div>
-                                <input datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-center flex gap-x-2">
-                            <button class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Terima
-                            </button>
-
-                            <button class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
-                                Tolak
-                            </button>
-                        </td>
-                    </tr>
-
-                    {{-- Data 4 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            4
-                        </th>
-                        <td class="px-6">
-                            P123
-                        </td>
-                        <td class="px-6 py-4">
-                            Ruslan Ismail
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            TKJ
-                        </td>
-                        <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            10/26/2022
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <div class="relative max-w-sm">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                   <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                                    </svg>
-                                </div>
-                                <input datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-center flex gap-x-2">
-                            <button class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Terima
-                            </button>
-
-                            <button class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
-                                Tolak
-                            </button>
-                        </td>
-                    </tr>
+                @endforelse
 
                 </tbody>
             </table>

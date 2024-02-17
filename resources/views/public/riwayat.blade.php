@@ -11,7 +11,7 @@
         <a href="/listBuku" class="font-medium text-base text-fontSubJudul px-5 py-1 hover:scale-105 hover:text-primary1 rounded-full hover:bg-bgSubJudul duration-300">
             List Buku
           </a>
-        <a href="#" class="font-medium text-base text-primary1 px-5 py-1 ml-11 rounded-full bg-bgSubJudul hover:scale-105 duration-300">
+        <a href="/riwayat" class="font-medium text-base text-primary1 px-5 py-1 ml-11 rounded-full bg-bgSubJudul hover:scale-105 duration-300">
             Riwayat
         </a>
 
@@ -64,102 +64,56 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- Data 1 --}}
+                        @forelse ($rents as $item)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                1
+                                {{ $loop->iteration }}
                             </th>
                             <td class="p-4">
-                                Tere Liye Bumi Series
+                                {{ $item->book->title}}
                             </td>
                             <td class="px-6 py-4">
-                                Tere Liye
+                                {{ $item->book->creator }}
                             </td>
                             <td class="px-6 py-4 text-center">
-                                10/26/2022
+                                {{ $item->rentDate }}
                             </td>
                             <td class="px-6 py-4 text-center">
-                                10/30/2022
+                                {{ $item->returnDate }}
                             </td>
                             <td class="flex px-6 py-4 text-center justify-center">
-                                <div class="px-5 py-1 text-sm text-green-600 bg-green-300 w-1/2 rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                    Sudah Kembali
+                                @if ($item->status == "Menunggu")
+                                <div class="px-5 py-1 text-sm text-gray-600 bg-gray-300 w-1/2 rounded-full text-center font-medium hover:bg-gray-400 duration-300">
+                                    Menunggu
                                 </div>
-                            </td>
-                        </tr>
-    
-                        {{-- Data 2 --}}
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                2
-                            </th>
-                            <td class="p-4">
-                                Tere Liye Bumi Series
-                            </td>
-                            <td class="px-6 py-4">
-                                Tere Liye
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                10/26/2022
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                10/30/2022
-                            </td>
-                            <td class="flex px-6 py-4 text-center justify-center">
+                                @elseif ($item->status == "Masih Dipinjam")
                                 <div class="px-5 py-1 text-sm text-blue-600 bg-blue-300 w-1/2 rounded-full text-center font-medium hover:bg-blue-400 duration-300">
                                     Masih Dipinjam
                                 </div>
-                            </td>
-                        </tr>
-    
-                        {{-- Data 3 --}}
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                3
-                            </th>
-                            <td class="p-4">
-                                Tere Liye Bumi Series
-                            </td>
-                            <td class="px-6 py-4">
-                                Tere Liye
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                10/26/2022
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                10/30/2022
-                            </td>
-                            <td class="flex px-6 py-4 text-center justify-center">
+                                @elseif ($item->status == "Sudah Kembali")
+                                <div class="px-5 py-1 text-sm text-green-600 bg-green-300 w-1/2 rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                                    Sudah Kembali
+                                </div>
+                                @elseif ($item->status == "Terlambat")
                                 <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-1/2 rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                     Terlambat
                                 </div>
+                                @elseif ($item->status == "Ditolak")
+                                <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-1/2 rounded-full text-center font-medium hover:bg-red-400 duration-300">
+                                    Ditolak
+                                </div>
+                                @endif
                             </td>
                         </tr>
-    
-                        {{-- Data 4 --}}
+
+                        @empty
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                4
+                                Tidak ada Data
                             </th>
-                            <td class="p-4">
-                                Tere Liye Bumi Series
-                            </td>
-                            <td class="px-6 py-4">
-                                Tere Liye
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                10/26/2022
-                            </td>
-                            <td class="px-6 py-4 text-center">
-                                10/30/2022
-                            </td>
-                            <td class="flex px-6 py-4 text-center justify-center">
-                                <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-1/2 rounded-full text-center font-medium hover:bg-red-400 duration-300">
-                                    Terlambat
-                                </div>
-                            </td>
                         </tr>
-    
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>

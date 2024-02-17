@@ -27,7 +27,7 @@ class BookController extends Controller
             "title" => "Data Buku", 
             "subJudul" => "Data Buku", 
             "subJudul2" => "Data Peminjaman", 
-            "subJudul3" => "",'books' => $books]);
+            "subJudul3" => "", 'books' => $books]);
     }
 
     /**

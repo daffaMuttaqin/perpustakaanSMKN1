@@ -6,6 +6,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookRentUserController;
+use App\Http\Controllers\BookRentController;
+use App\Http\Controllers\RentLogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,31 +21,25 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [PublicController::class, 'index'])->name('login');
+Route::get('/', [PublicController::class, 'index']);
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/masuk', [AuthController::class, 'login']);
+    Route::get('/masuk', [AuthController::class, 'login'])->name('login');
     Route::post('/masuk', [AuthController::class, 'authenticating']);
     Route::get('/daftar', [AuthController::class, 'register'])->name('Daftar');
     Route::post('/daftar', [AuthController::class, 'store']);
 });
 
-Route::middleware(['preventBackHistory', 'auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/keluar', [AuthController::class, 'logout']);
 
-    Route::get('/listBuku', [StudentController::class, 'index'])->name('Data Siswa');
-    Route::get('/riwayat', function () {
-        return view('public/riwayat', [
-            "title" => "Data Siswa"
-        ]);
-    })->name('Data Siswa');
-    
-    Route::get('/profil', function () {
-        return view('public/profil', [
-            "title" => "Profil"
-        ]);
-    })->name('Profil');
+    Route::middleware(['onlyStudent'])->group(function () {
+        Route::get('/listBuku', [StudentController::class, 'index'])->name('Data Siswa');
+        Route::post('/pinjamBuku/{id}', [BookRentUserController::class, 'store']);
+        Route::get('/riwayat', [StudentController::class, 'history'])->name('Data Siswa');
+        Route::get('/profil', [StudentController::class, 'profile'])->name('Profil');
+    });
 
     Route::middleware(['onlyAdmin'])->group(function () {
 
@@ -51,14 +48,7 @@ Route::middleware(['preventBackHistory', 'auth'])->group(function () {
         Route::put('/updateBuku/{id}', [BookController::class, 'update']);
         Route::get('/hapusBuku/{id}', [BookController::class, 'destroy']);
 
-        Route::get('/dataPeminjaman', function () {
-        return view('admin/dataPeminjaman', [
-            "title" => "Data Buku",
-            "subJudul" => "Data Buku",
-            "subJudul2" => "Data Peminjaman",
-            "subJudul3" => "",
-        ]);
-        })->name('Data Peminjaman');
+        Route::get('/dataPeminjaman', [RentLogController::class, 'index'])->name('Data Peminjaman');
     
         Route::get('/dataAnggota', [UserController::class, 'indexStudent'])->name('Data Anggota Perpustakaan');
         Route::post('/tambahAnggota', [UserController::class, 'storeStudent']);
@@ -70,26 +60,19 @@ Route::middleware(['preventBackHistory', 'auth'])->group(function () {
         Route::put('/updatePekerja/{id}', [UserController::class, 'updateAdmin']);
         Route::get('/hapusPekerja/{id}', [UserController::class, 'destroyAdmin']);
         
-        Route::get('/transaksi', function () {
-            return view('admin/transaksi', [
-                "title" => "Transaksi",
-                "subJudul" => "Transaksi Buku",
-                "subJudul2" => "",
-                "subJudul3" => "",
-            ]);
-        })->name('Transaksi Buku');
+        Route::get('/transaksi', [BookRentUserController::class, 'index'])->name('Transaksi Buku');
+
+        Route::put('/tolakPinjam/{id}', [BookRentUserController::class, 'decline']);
+        Route::put('/terimaPinjam/{id}', [BookRentUserController::class, 'accept']);
         
-        Route::get('/dataLaporan', function () {
-            return view('admin/dataLaporan', [
-                "title" => "Laporan",
-                "subJudul" => "Data Laporan",
-                "subJudul2" => "",
-                "subJudul3" => "",
-            ]);
-        })->name('Data Laporan');
+        Route::get('/dataLaporan', [BookRentController::class, 'index'])->name('Data Laporan');
+        Route::put('/updateDataLaporan/{id}', [BookRentController::class, 'update']);
+        Route::get('/hapusDataLaporan/{id}', [BookRentController::class, 'destroy']);
+
+        Route::get('/ekspor', [RentLogController::class, 'export']);
         
         Route::get('/kepsek', function () {
-            return view('kepsek/daftarLaporan', [
+            return view('kepsek.daftarLaporan', [
                 "title" => "Laporan",
                 "subJudul" => "Daftar Laporan",
                 "subJudul2" => "",
@@ -98,7 +81,7 @@ Route::middleware(['preventBackHistory', 'auth'])->group(function () {
         });
         
         Route::get('/perpustakaan', function () {
-            return view('kepsek/perpustakaan', [
+            return view('kepsek.perpustakaan', [
                 "title" => "Perpustakaan",
                 "subJudul" => "Buku",
                 "subJudul2" => "",

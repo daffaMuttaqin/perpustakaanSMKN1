@@ -56,13 +56,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                @php $i = 1 @endphp
                 @foreach ($books as $item)
-
-                    {{-- Data  --}}
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap"> 
-                            @php echo($i++) @endphp
+                            {{ $loop->iteration }}
                         </th>
                         <td class="p-4">
                             <img src="{{ asset('storage/cover-book/' . $item->cover) }}" class="w-16 md:w-32 max-w-full max-h-full" alt="Book">
