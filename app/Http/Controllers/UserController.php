@@ -13,10 +13,10 @@ class UserController extends Controller
     public function indexStudent(Request $request){
 
         if ($request->title) {
-            $users = User::where('username', 'like', '%' . $request->title . '%')->where('role', '!=', 'Admin')->where('role', '!=', 'KepalaSekolah')->get();
+            $users = User::where('username', 'like', '%' . $request->title . '%')->where('role', '=', 'Student')->get();
         }
         else {
-            $users = User::where('role', '!=', 'Admin')->where('role', '!=', 'KepalaSekolah')->get();
+            $users = User::where('role', '=', 'Student')->get();
         }
 
         return view('admin.dataAnggota', [

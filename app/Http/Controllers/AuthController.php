@@ -37,6 +37,10 @@ class AuthController extends Controller
                 return redirect('/listBuku');
             }
 
+            if (Auth::user()->role == "Kepala Sekolah") {
+                return redirect('/kepsek');
+            }
+
         }
         
         return redirect('/masuk');

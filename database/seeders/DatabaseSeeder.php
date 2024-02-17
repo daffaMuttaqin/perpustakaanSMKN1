@@ -29,6 +29,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
+            'nip' => '123.233.122',
+            'name' => 'Muchsinin',
+            'username' => 'kepsek',
+            'password' => '$2y$10$xpNiLr7I8m1XX3dx64a10.BH0JO6DCth73DvEXQGkzdGrFZhGbgzm',
+            'phone' => '081232123212',
+            'jurusan' => '',
+            'role' => 'Kepala Sekolah',
+            'avatar' => 'batman.png'
+        ]);
+
+        User::create([
             'nip' => '',
             'name' => 'Dummy Student',
             'username' => '123',

@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookRentUserController;
 use App\Http\Controllers\BookRentController;
 use App\Http\Controllers\RentLogController;
+use App\Http\Controllers\KepsekController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,23 +71,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/hapusDataLaporan/{id}', [BookRentController::class, 'destroy']);
 
         Route::get('/ekspor', [RentLogController::class, 'export']);
+
+    });
+
+    Route::middleware(['onlyKepsek'])->group(function() {
+
+        Route::get('/kepsek', [KepsekController::class, 'index']);
+
+        Route::get('/perpustakaan', [KepsekController::class, 'book']);
         
-        Route::get('/kepsek', function () {
-            return view('kepsek.daftarLaporan', [
-                "title" => "Laporan",
-                "subJudul" => "Daftar Laporan",
-                "subJudul2" => "",
-                "subJudul3" => "",
-            ]);
-        });
-        
-        Route::get('/perpustakaan', function () {
-            return view('kepsek.perpustakaan', [
-                "title" => "Perpustakaan",
-                "subJudul" => "Buku",
-                "subJudul2" => "",
-                "subJudul3" => "",
-            ]);
-        });
-        });
+    });
 });

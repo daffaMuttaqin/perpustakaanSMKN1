@@ -4,6 +4,8 @@ namespace App\Http;
 
 use App\Http\Middleware\OnlyAdmin;
 use App\Http\Middleware\OnlyStudent;
+use App\Http\Middleware\OnlyKepsek;
+
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -68,6 +70,7 @@ class Kernel extends HttpKernel
         'preventBackHistory' => \App\Http\Middleware\PreventBackHistory::class,
         'onlyAdmin' => OnlyAdmin::class,
         'onlyStudent' => OnlyStudent::class,
+        'onlyKepsek' => OnlyKepsek::class,
     ];
 
     protected $commands = [
