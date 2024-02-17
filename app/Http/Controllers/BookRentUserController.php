@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Book;
 use App\Models\RentLogs;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -25,11 +26,13 @@ class BookRentUserController extends Controller
             $rents = RentLogs::with(['user', 'book'])->where('status', '=', 'Menunggu')->get();
         }
 
+        $notif = Notification::all();
+
         return view('admin.transaksi', [
             "title" => "Transaksi",
             "subJudul" => "Transaksi Buku",
             "subJudul2" => "",
-            "subJudul3" => "", 'rents' => $rents
+            "subJudul3" => "", 'rents' => $rents, 'notif' => $notif
         ]);
     }
 

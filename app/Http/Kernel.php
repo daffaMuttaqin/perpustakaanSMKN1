@@ -75,6 +75,7 @@ class Kernel extends HttpKernel
 
     protected $commands = [
         \App\Console\Commands\UpdateBookReturn::class,
+        \App\Console\Commands\Notification::class,
     ];
     
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -23,11 +24,14 @@ class BookController extends Controller
             $books = Book::all();
         }
 
+        $notif = Notification::all();
+
         return view ('admin.dataBuku', [
             "title" => "Data Buku", 
             "subJudul" => "Data Buku", 
             "subJudul2" => "Data Peminjaman", 
-            "subJudul3" => "", 'books' => $books]);
+            "subJudul3" => "", 'books' => $books, 'notif' => $notif
+        ]);
     }
 
     /**

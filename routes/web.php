@@ -76,9 +76,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['onlyKepsek'])->group(function() {
 
-        Route::get('/kepsek', [KepsekController::class, 'index']);
+        Route::get('/perpustakaan', [KepsekController::class, 'index'])->name('Buku');
 
-        Route::get('/perpustakaan', [KepsekController::class, 'book']);
+        Route::get('/laporan', [KepsekController::class, 'report']);
         
     });
 });

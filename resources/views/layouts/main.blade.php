@@ -244,27 +244,18 @@
               <div class="grid grid-cols-8 gap-y-6 pb-4">
                 {{-- Notifikasi 1 --}}
                 {{-- Avatar --}}
+                @forelse ($notif as $item)
                 <img src="img/default.png" class="w-12 h-12 rounded-full mx-auto col-span-1" src="{{ asset('storage/avatar/' . Auth::user()->avatar) }}" alt="Rounded avatar">
                 {{-- Teks Notifikasi --}}
                 <div class="col-span-7">
-                  Dwi Annisa dari X TKJ 1 telah jatuh tempo untuk mengembalikan buku, tanggal peminjaman 10/11/2023
+                  {{ $item->message }}
                 </div>
-
-                {{-- Notifikasi 2 --}}
-                {{-- Avatar --}}
-                <img class="w-12 h-12 rounded-full mx-auto col-span-1" src="{{ asset('storage/avatar/' . Auth::user()->avatar) }}" alt="Rounded avatar">
+                @empty
                 {{-- Teks Notifikasi --}}
                 <div class="col-span-7">
-                  Kepala sekolah telah menyetujui Laporan Request Buku Baru yang anda ajukan
+                  Tidak ada Notifikasi
                 </div>
-
-                {{-- Notifikasi 3 --}}
-                {{-- Avatar --}}
-                <img class="w-12 h-12 rounded-full mx-auto col-span-1" src="{{ asset('storage/avatar/' . Auth::user()->avatar) }}" alt="Rounded avatar">
-                {{-- Teks Notifikasi --}}
-                <div class="col-span-7">
-                  Dwi Annisa dari X TKJ 1 telah jatuh tempo untuk mengembalikan buku, tanggal peminjaman 10/11/2023
-                </div>
+                @endforelse
 
               </div>
 

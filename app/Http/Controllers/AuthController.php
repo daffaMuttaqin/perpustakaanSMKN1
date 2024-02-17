@@ -38,7 +38,7 @@ class AuthController extends Controller
             }
 
             if (Auth::user()->role == "Kepala Sekolah") {
-                return redirect('/kepsek');
+                return redirect('/perpustakaan');
             }
 
         }

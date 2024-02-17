@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -20,11 +21,13 @@ class UserController extends Controller
             $users = User::where('role', '=', 'Student')->get();
         }
 
+        $notif = Notification::all();
+
         return view('admin.dataAnggota', [
             "title" => "Data Anggota",
             "subJudul" => "Data Anggota Perpustakaan",
             "subJudul2" => "",
-            "subJudul3" => "", 'users' => $users
+            "subJudul3" => "", 'users' => $users, 'notif' => $notif
         ]);
     }
 
@@ -80,11 +83,13 @@ class UserController extends Controller
             $users = User::where('role', '!=', 'Student')->get();
         }
 
+        $notif = Notification::all();
+
         return view('admin.dataPekerja', [
             "title" => "Data pekerja",
             "subJudul" => "Data Pekerja Perpustakaan",
             "subJudul2" => "",
-            "subJudul3" => "", 'users' => $users
+            "subJudul3" => "", 'users' => $users, 'notif' => $notif
         ]);
     }
 

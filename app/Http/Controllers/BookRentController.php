@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Notification;
 use App\Models\RentLogs;
 use Illuminate\Http\Request;
 
@@ -21,11 +22,13 @@ class BookRentController extends Controller
             $rents = RentLogs::with('user')->where('status', '!=', 'Menunggu')->where('status', '!=', 'Ditolak')->get();
         }
 
+        $notif = Notification::all();
+
         return view('admin.dataLaporan', [
             "title" => "Laporan",
             "subJudul" => "Data Laporan",
             "subJudul2" => "",
-            "subJudul3" => "", 'rents' => $rents
+            "subJudul3" => "", 'rents' => $rents, 'notif' => $notif
         ]);
     }
 
@@ -35,6 +38,8 @@ class BookRentController extends Controller
         $date = Carbon::now()->toDateTimeString();
 
         RentLogs::find($id)->update(['status' => $status, 'actualReturnDate' => $date]);
+
+        Notification::where('userId', $request->user)->delete();
 
         return redirect('/dataLaporan');
     }

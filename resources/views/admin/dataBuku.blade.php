@@ -56,7 +56,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($books as $item)
+                @forelse ($books as $item)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap"> 
                             {{ $loop->iteration }}
@@ -103,8 +103,14 @@
                             </button>
                         </td>
                     </tr>
+                @empty
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap"> 
+                            Buku Kosong
+                        </th>
+                    </tr>
 
-                @endforeach
+                @endforelse
 
                 </tbody>
             </table>

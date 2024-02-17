@@ -1,5 +1,5 @@
-@extends('layouts.main')
-@section('konten')
+@extends('layouts.layout-kepsek')
+@section('konten-kepsek')
 {{-- KONTEN --}}
 <div class="w-full h-full">
     <div class="flex items-center gap-x-24">
@@ -12,7 +12,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
                 </div>
-                <input type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian buku" required>
+                <input name="title" type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian buku" required>
             </div>
         </form>
     </div>
@@ -50,125 +50,49 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- Data 1 --}}
+                @forelse ($books as $item)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            1
+                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap"> 
+                            {{ $loop->iteration }}
                         </th>
                         <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="">
+                            <img src="{{ asset('storage/cover-book/' . $item->cover) }}" class="w-16 md:w-32 max-w-full max-h-full" alt="Book">
                         </td>
                         <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
+                            {{ $item->title }}
                         </td>
                         <td class="px-6 py-4">
-                            H. Abd. Rahman,<br>Hj. Lim Halimah,<br>Munawir A.M.,<br>H.A. Sholeh Dimyathi,<br>H. Ridhwan.
+                            {{ $item->creator }}
                         </td>
                         <td class="px-6 py-4">
-                            Erlangga
+                            {{ $item->publisher }}
                         </td>
                         <td class="px-6 py-4">
-                            297.73 PEN CB-D.09 2016-14494
+                            {{ $item->ISBN}}
                         </td>
                         <td class="px-6 py-4 text-center">
-                            30
+                            {{ $item->stock }}
                         </td>
                         <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Tersedia
-                            </div>
-                        </td>
-                    </tr>
-
-                    {{-- Data 2 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            2
-                        </th>
-                        <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="">
-                        </td>
-                        <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
-                        </td>
-                        <td class="px-6 py-4">
-                            H. Abd. Rahman,<br>Hj. Lim Halimah,<br>Munawir A.M.,<br>H.A. Sholeh Dimyathi,<br>H. Ridhwan.
-                        </td>
-                        <td class="px-6 py-4">
-                            Erlangga
-                        </td>
-                        <td class="px-6 py-4">
-                            297.73 PEN CB-D.09 2016-14494
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            30
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
-                                Tersedia
-                            </div>
-                        </td>
-                    </tr>
-
-                    {{-- Data 3 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 font-medium px-6 py-4 text-gray-900 whitespace-nowrap">
-                            3
-                        </th>
-                        <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="">
-                        </td>
-                        <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
-                        </td>
-                        <td class="px-6 py-4">
-                            H. Abd. Rahman,<br>Hj. Lim Halimah,<br>Munawir A.M.,<br>H.A. Sholeh Dimyathi,<br>H. Ridhwan.
-                        </td>
-                        <td class="px-6 py-4">
-                            Erlangga
-                        </td>
-                        <td class="px-6 py-4">
-                            297.73 PEN CB-D.09 2016-14494
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            30
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="px-5 py-1 text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400">
-                                Tidak Tersedia
-                            </div>
-                        </td>
-                    </tr>
-
-                    {{-- Data 4 --}}
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="w-4 p-4 font-medium px-6 py-4 text-gray-900 whitespace-nowrap">
-                            4
-                        </th>
-                        <td class="p-4">
-                            <img src="img/buku1.png" class="w-16 md:w-32 max-w-full max-h-full" alt="">
-                        </td>
-                        <td class="px-6 py-4">
-                            Pendidikan Agama Islam dan Budi Pekerti
-                        </td>
-                        <td class="px-6 py-4">
-                            H. Abd. Rahman,<br>Hj. Lim Halimah,<br>Munawir A.M.,<br>H.A. Sholeh Dimyathi,<br>H. Ridhwan.
-                        </td>
-                        <td class="px-6 py-4">
-                            Erlangga
-                        </td>
-                        <td class="px-6 py-4">
-                            297.73 PEN CB-D.09 2016-14494
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            30
-                        </td>
-                        <td class="px-6 py-4">
+                            @if ($item->stock == 0)
                             <div class="px-5 py-1 text-sm text-red-600 bg-red-300 w-full rounded-full text-center font-medium hover:bg-red-400 duration-300">
                                 Tidak Tersedia
                             </div>
+                            @else
+                            <div class="px-5 py-1 text-green-600 bg-green-300 w-full rounded-full text-center font-medium hover:bg-green-400 duration-300">
+                                Tersedia
+                            </div>
+                            @endif
                         </td>
                     </tr>
+                @empty
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="w-4 p-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap"> 
+                            Buku Kosong
+                        </th>
+                    </tr>
+
+                @endforelse
 
                 </tbody>
             </table>

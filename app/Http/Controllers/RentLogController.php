@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RentLogs;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Exports\ReportExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -23,11 +24,13 @@ class RentLogController extends Controller
             $rents = RentLogs::with(['user', 'book'])->get();
         }
 
+        $notif = Notification::all();
+
         return view('admin.dataPeminjaman', [
             "title" => "Data Buku",
             "subJudul" => "Data Buku",
             "subJudul2" => "Data Peminjaman",
-            "subJudul3" => "", 'rents' => $rents
+            "subJudul3" => "", 'rents' => $rents, 'notif' => $notif
         ]);
     }
 
