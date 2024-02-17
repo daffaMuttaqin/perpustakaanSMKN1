@@ -244,7 +244,7 @@
               <div class="grid grid-cols-8 gap-y-6 pb-4">
                 {{-- Notifikasi 1 --}}
                 {{-- Avatar --}}
-                <img class="w-12 h-12 rounded-full mx-auto col-span-1" src="{{ asset('storage/avatar/' . Auth::user()->avatar) }}" alt="Rounded avatar">
+                <img src="img/default.png" class="w-12 h-12 rounded-full mx-auto col-span-1" src="{{ asset('storage/avatar/' . Auth::user()->avatar) }}" alt="Rounded avatar">
                 {{-- Teks Notifikasi --}}
                 <div class="col-span-7">
                   Dwi Annisa dari X TKJ 1 telah jatuh tempo untuk mengembalikan buku, tanggal peminjaman 10/11/2023
@@ -272,4 +272,4 @@
       </div>
   </div>
 </div>
-    @include('partials.footer')
+@include('partials.footer')

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -90,10 +91,16 @@ class UserController extends Controller
     public function storeAdmin(Request $request){
         $data = $request->all();
 
+        if ($request->file('avatar')) {
+            $extension = $request->file('avatar')->getClientOriginalExtension();
+            $newName = $request->username . '-' . now()->timestamp . '.' . $extension;
+            $path = $request->file('avatar')->storeAs('public/avatar', $newName);
+        }
+
         $data['password'] = Hash::make($data['password']);
 
         $data['jurusan'] = "";
-        $data['avatar'] = "";
+        $data['avatar'] = basename($path);
         
         User::create($data);
 
@@ -110,8 +117,19 @@ class UserController extends Controller
             $data['password'] = $request->oldPassword;
         }
 
+        if ($request->hasFile('avatar')){
+
+            $extension = $request->file('avatar')->getClientOriginalExtension();
+            $newName = $request->username . '-' . now()->timestamp . '.' . $extension;
+            $path = $request->file('avatar')->storeAs('public/avatar', $newName);
+
+            $oldavatar = User::where('id', $id)->first()->avatar;
+            $deleteOldavatar = Storage::delete('public/avatar/' . $oldavatar);
+
+            $data['avatar'] = basename($path);
+        }
+
         $data['jurusan'] = "";
-        $data['avatar'] = "";
 
         $users = User::find($id);
 
