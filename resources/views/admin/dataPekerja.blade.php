@@ -15,7 +15,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
                 </div>
-                <input name="title" type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian Pekerja" required>
+                <input name="title" type="search" id="default-search" class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-primary1" placeholder="Pencarian Pekerja">
             </div>
         </form>
     </div>
@@ -149,7 +149,7 @@
                     <select name="role" id="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary1 focus:border-primary1 block w-full p-2.5">
                         <option selected>Pilih Role</option>
                         <option value="Admin">Admin</option>
-                        <option value="KepalaSekolah">Kepala Sekolah</option>
+                        <option value="Kepala Sekolah">Kepala Sekolah</option>
                     </select>
                 </div>
 

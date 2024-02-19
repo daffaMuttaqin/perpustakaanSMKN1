@@ -65,11 +65,6 @@
           <!-- Nama & Icon Edit -->
           <div class="flex w-full py-1 justify-center">
             <div class="font-medium truncate px-2">{{ Auth::user()->name }}</div>
-            {{-- Button Edit --}}
-            <a href="/dataPekerja"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
-                <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
-              </svg>
-            </a>
           </div>
           <!-- Badge Admin -->
           <div class="py-2">
@@ -107,7 +102,7 @@
 
     <!-- SIDE BAR -->
     <div class="fixed top-32 left-4 w-2/12 bg-white h-4/5 rounded-xl shadow-lg">
-        <div class="grid grid-rows-4 grid-flow-col gap-4 h-full w-full">
+        <div class="grid grid-rows-3 grid-flow-col gap-4 h-full w-full">
             {{-- Avatar Sidebar --}}
             <div>
                 <img
@@ -126,18 +121,18 @@
             </div>
             
             {{-- Menu Sidebar --}}
-            <div class="row-span-2 mt-9">
+            <div class="mt-5">
                 <div class="flex flex-col">
                     {{-- Tombol Sedang aktif --}}
-                    <a href="/perpustakaan" class="flex bg-bgSubJudul py-1 mx-3 rounded-full">
+                    <a href="/perpustakaan" class="flex {{ (request()->is('perpustakaan')) ? 'bg-bgSubJudul text-primary1 font-semibold' : '' }} py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 17V2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M5 15V1m8 18v-4"/>
                         </svg>
-                        <div class="text-primary1 font-semibold">Perpustakaan</div>
+                        <div>Perpustakaan</div>
                     </a>
                     {{-- End Tombol Sedang Aktif --}}
 
-                    <a href="/laporan" class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
+                    <a href="/laporan" class="flex {{ (request()->is('laporan')) ? 'bg-bgSubJudul text-primary1 font-semibold' : '' }} py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.828 10h6.239m-6.239 4h6.239M6 1v4a1 1 0 0 1-1 1H1m14-4v16a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2Z"/>
                           </svg>

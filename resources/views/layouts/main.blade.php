@@ -107,7 +107,7 @@
 
     <!-- SIDE BAR -->
     <div class="fixed top-32 left-4 w-2/12 bg-white h-4/5 rounded-xl shadow-lg">
-        <div class="grid grid-rows-4 grid-flow-col gap-4 h-full w-full">
+        <div class="grid grid-rows-3 grid-flow-col gap-4 h-full w-full">
             {{-- Avatar Sidebar --}}
             <div>
                 <img
@@ -126,19 +126,17 @@
             </div>
             
             {{-- Menu Sidebar --}}
-            <div class="row-span-2 mt-9">
+            <div class="mt-5">
                 <div class="flex flex-col">
                     {{-- Tombol Sedang aktif --}}
-                    <a href="/dataBuku" class="flex bg-bgSubJudul py-1 mx-3 rounded-full">
+                    <a href="/dataBuku" class="flex {{ (request()->is('dataBuku')) ? 'bg-bgSubJudul text-primary1 font-semibold' : '' }} {{ (request()->is('dataPeminjaman')) ? 'bg-bgSubJudul text-primary1 font-semibold' : '' }} py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 17V2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M5 15V1m8 18v-4"/>
                         </svg>
-                        <div class="text-primary1 font-semibold">Data Buku</div>
+                        <div class="">Data Buku</div>
                     </a>
-                    {{-- End Tombol Sedang Aktif --}}
 
-                    {{-- Tombol Tidak Aktif --}}
-                    <a href="/dataAnggota" class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
+                    <a href="/dataAnggota" class="flex {{ (request()->is('dataAnggota')) ? 'bg-bgSubJudul text-primary1 font-semibold' : '' }} py-1 mx-3 rounded-full hover:bg-bgSubJudul  hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.333 6.764a3 3 0 1 1 3.141-5.023M2.5 16H1v-2a4 4 0 0 1 4-4m7.379-8.121a3 3 0 1 1 2.976 5M15 10a4 4 0 0 1 4 4v2h-1.761M13 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-4 6h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z"/>
                           </svg>
@@ -146,21 +144,21 @@
                     </a>
                     {{-- End Tombol Tidak Aktif --}}
                     
-                    <a href="/dataPekerja" class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
+                    <a href="/dataPekerja" class="flex {{ (request()->is('dataPekerja')) ? 'bg-bgSubJudul text-primary1 font-semibold' : '' }} py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3a3 3 0 1 1-1.614 5.53M15 12a4 4 0 0 1 4 4v1h-3.348M10 4.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0ZM5 11h3a4 4 0 0 1 4 4v2H1v-2a4 4 0 0 1 4-4Z"/>
                           </svg>
                         <div class="">Data Pekerja</div>
                     </a>
 
-                    <a href="/transaksi" class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
+                    <a href="/transaksi" class="flex {{ (request()->is('transaksi')) ? 'bg-bgSubJudul text-primary1 font-semibold' : '' }} py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h6m-6 4h6m-6 4h6M1 1v18l2-2 2 2 2-2 2 2 2-2 2 2V1l-2 2-2-2-2 2-2-2-2 2-2-2Z"/>
                           </svg>
                         <div class="">Transaksi</div>
                     </a>
 
-                    <a href="/dataLaporan" class="flex py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
+                    <a href="/dataLaporan" class="flex {{ (request()->is('dataLaporan')) ? 'bg-bgSubJudul text-primary1 font-semibold' : '' }} py-1 mx-3 rounded-full hover:bg-bgSubJudul hover:font-semibold duration-100">
                         <svg class="w-6 h-6 ml-7 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.828 10h6.239m-6.239 4h6.239M6 1v4a1 1 0 0 1-1 1H1m14-4v16a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2Z"/>
                           </svg>
@@ -187,7 +185,7 @@
             {{-- Class Sub Judul Aktif --}}
             @if ($subJudul == '')
             @else
-            <a href="{{ route($subJudul) }}" class="font-medium text-base text-primary1 px-5 py-1 rounded-full bg-bgSubJudul">
+            <a href="{{ route($subJudul) }}" class="font-medium {{ (request()->is('dataBuku')) ? 'bg-bgSubJudul text-primary1' : '' }} text-base text-fontSubJudul px-5 py-1 rounded-full">
               {{ $subJudul }}
             </a>
             @endif
@@ -195,7 +193,7 @@
             {{-- Class Sub Judul Normal --}}
             @if ($subJudul2 == '')
             @else
-            <a href="{{ route($subJudul2) }}" class="font-medium text-base text-fontSubJudul px-5 py-1 ml-11">
+            <a href="{{ route($subJudul2) }}" class="font-medium {{ (request()->is('dataPeminjaman')) ? 'bg-bgSubJudul text-primary1' : '' }} text-base text-fontSubJudul px-5 py-1 ml-11 rounded-full">
               {{ $subJudul2 }}
             </a>
             @endif
