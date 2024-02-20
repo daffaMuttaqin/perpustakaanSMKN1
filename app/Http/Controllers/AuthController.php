@@ -42,6 +42,9 @@ class AuthController extends Controller
             }
 
         }
+
+        Session::flash('status', 'failed');
+        Session::flash('message', 'Username atau password salah');
         
         return redirect('/masuk');
         

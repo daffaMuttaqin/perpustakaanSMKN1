@@ -68,6 +68,9 @@ class BookController extends Controller
         $data['cover'] = basename($path);
         Book::create($data);
 
+        Session::flash('status', 'success');
+        Session::flash('message', 'Buku Berhasil ditambahkan');
+
         return redirect('/dataBuku');
     }
 
@@ -99,6 +102,9 @@ class BookController extends Controller
 
         $book->update($data);
 
+        Session::flash('status', 'update');
+        Session::flash('message', 'Buku Berhasil diupdate');
+
         return redirect('/dataBuku');
     }
 
@@ -115,6 +121,9 @@ class BookController extends Controller
         Storage::delete('public/cover-book/' . basename($imageName->cover));
 
         Book::where('id', $book)->delete();
+
+        Session::flash('status', 'delete');
+        Session::flash('message', 'Buku Berhasil dihapus');
 
         return redirect('/dataBuku');
     }

@@ -62,14 +62,14 @@ class BookRentUserController extends Controller
 
         if ($bookCheck == 1) {
 
-            Session::flash('status', 'fail');
+            Session::flash('status', 'failed');
             Session::flash('message', 'Buku tidak tersedia');
             return redirect('/listBuku');
         }
 
         if ($logCount >= 3) {
 
-            Session::flash('status', 'fail');
+            Session::flash('status', 'failed');
             Session::flash('message', 'Sudah mencapai limit pinjam');
             return redirect('/listBuku');
         }

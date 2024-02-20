@@ -43,6 +43,9 @@ class UserController extends Controller
 
         User::create($data);
 
+        Session::flash('status', 'success');
+        Session::flash('message', 'Anggota Berhasil ditambahkan');
+
         return redirect('/dataAnggota');
     }
 
@@ -64,12 +67,18 @@ class UserController extends Controller
 
         $users->update($data);
 
+        Session::flash('status', 'update');
+        Session::flash('message', 'Anggota Berhasil diupdate');
+
         return redirect('/dataAnggota');
     }
 
     public function destroyStudent($user)
     {
         User::where('id', $user)->delete();
+
+        Session::flash('status', 'delete');
+        Session::flash('message', 'Anggota Berhasil dihapus');
 
         return redirect('/dataAnggota');
     }
@@ -110,6 +119,9 @@ class UserController extends Controller
 
         User::create($data);
 
+        Session::flash('status', 'success');
+        Session::flash('message', 'Pekerja Berhasil ditambahkan');
+
         return redirect('/dataPekerja');
     }
 
@@ -141,12 +153,18 @@ class UserController extends Controller
 
         $users->update($data);
 
+        Session::flash('status', 'update');
+        Session::flash('message', 'Pekerja Berhasil diupdate');
+
         return redirect('/dataPekerja');
     }
 
     public function destroyAdmin($user)
     {
         User::where('id', $user)->delete();
+
+        Session::flash('status', 'delete');
+        Session::flash('message', 'Pekerja Berhasil dihapus');
 
         return redirect('/dataPekerja');
     }
