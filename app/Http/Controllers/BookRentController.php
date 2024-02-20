@@ -14,12 +14,11 @@ class BookRentController extends Controller
         $title = $request->title;
 
         if ($title) {
-            $rents = RentLogs::with('user')->whereHas('user', function($query) use ($title) {
+            $rents = RentLogs::with('user')->whereHas('user', function ($query) use ($title) {
                 $query->where('username', 'like', '%' . $title . '%');
-            })->where('status', '!=', 'Menunggu')->where('status', '!=', 'Ditolak')->get();
-        }
-        else {
-            $rents = RentLogs::with('user')->where('status', '!=', 'Menunggu')->where('status', '!=', 'Ditolak')->get();
+            })->where('status', '!=', 'Menunggu')->where('status', '!=', 'Ditolak')->paginate(7)->withQueryString();
+        } else {
+            $rents = RentLogs::with('user')->where('status', '!=', 'Menunggu')->where('status', '!=', 'Ditolak')->paginate(7)->withQueryString();
         }
 
         $notif = Notification::all();

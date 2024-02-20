@@ -113,6 +113,10 @@
 
                 </tbody>
             </table>
+
+            {{-- Pagination --}}
+            <div class="mt-4"> {{ $rents->links('partials.myPaginate') }} </div>
+
         </div>
     </div>
 </div>

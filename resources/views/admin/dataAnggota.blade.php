@@ -87,6 +87,10 @@
                 
                 </tbody>
             </table>
+
+            {{-- Pagination --}}
+            <div class="mt-4"> {{ $users->links('partials.myPaginate') }} </div>
+
         </div>
     </div>
 </div>

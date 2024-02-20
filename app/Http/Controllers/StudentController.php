@@ -20,14 +20,13 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         if ($request->title) {
-            $books = Book::where('title', 'like', '%' . $request->title . '%')->get();
-        }
-        else {
-            $books = Book::all();
+            $books = Book::where('title', 'like', '%' . $request->title . '%')->paginate(5)->withQueryString();
+        } else {
+            $books = Book::paginate(5);
         }
 
         return view('public.listBuku', [
-            "title" => "Data Siswa",'books' => $books
+            "title" => "Data Siswa", 'books' => $books
         ]);
     }
 
@@ -38,12 +37,11 @@ class StudentController extends Controller
         $title = $request->title;
 
         if ($title) {
-            $rents = RentLogs::with('book')->whereHas('book', function($query) use ($title) {
+            $rents = RentLogs::with('book')->whereHas('book', function ($query) use ($title) {
                 $query->where('title', 'like', '%' . $title . '%');
-            })->where('userId', '=', $user->id )->get();
-        }
-        else {
-            $rents = RentLogs::with('book')->where('userId', '=', $user->id )->get();
+            })->where('userId', '=', $user->id)->paginate(7)->withQueryString();
+        } else {
+            $rents = RentLogs::with('book')->where('userId', '=', $user->id)->paginate(7)->withQueryString();
         }
 
         return view('public.riwayat', [
@@ -51,7 +49,8 @@ class StudentController extends Controller
         ]);
     }
 
-    public function profile(){
+    public function profile()
+    {
         return view('public.profil', [
             "title" => "Profil"
         ]);
@@ -61,6 +60,5 @@ class StudentController extends Controller
     {
         Auth::logout();
         return redirect('/');
-
     }
 }

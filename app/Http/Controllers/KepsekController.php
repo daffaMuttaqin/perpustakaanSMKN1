@@ -11,10 +11,9 @@ class KepsekController extends Controller
     public function index(Request $request)
     {
         if ($request->title) {
-            $books = Book::where('title', 'like', '%' . $request->title . '%')->get();
-        }
-        else {
-            $books = Book::all();
+            $books = Book::where('title', 'like', '%' . $request->title . '%')->paginate(5)->withQueryString();
+        } else {
+            $books = Book::paginate(5);
         }
 
         return view('kepsek.perpustakaan', [
@@ -30,12 +29,11 @@ class KepsekController extends Controller
         $title = $request->title;
 
         if ($title) {
-            $rents = RentLogs::with(['book','user'])->whereHas('user', function($query) use ($title) {
+            $rents = RentLogs::with(['book', 'user'])->whereHas('user', function ($query) use ($title) {
                 $query->where('username', 'like', '%' . $title . '%');
-            })->where('status', '!=', 'Menunggu')->where('status', '!=', 'Ditolak')->get();
-        }
-        else {
-            $rents = RentLogs::with(['book','user'])->where('status', '!=', 'Menunggu')->where('status', '!=', 'Ditolak')->get();
+            })->where('status', '!=', 'Menunggu')->where('status', '!=', 'Ditolak')->paginate(8)->withQueryString();
+        } else {
+            $rents = RentLogs::with(['book', 'user'])->where('status', '!=', 'Menunggu')->where('status', '!=', 'Ditolak')->paginate(8)->withQueryString();
         }
 
         return view('kepsek.daftarLaporan', [

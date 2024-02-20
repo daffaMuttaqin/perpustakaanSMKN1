@@ -18,12 +18,11 @@ class BookRentUserController extends Controller
         $title = $request->title;
 
         if ($title) {
-            $rents = RentLogs::with(['user', 'book'])->whereHas('user', function($query) use ($title) {
+            $rents = RentLogs::with(['user', 'book'])->whereHas('user', function ($query) use ($title) {
                 $query->where('username', 'like', '%' . $title . '%');
-            })->where('status', '=', 'Menunggu')->get();
-        }
-        else {
-            $rents = RentLogs::with(['user', 'book'])->where('status', '=', 'Menunggu')->get();
+            })->where('status', '=', 'Menunggu')->paginate(7)->withQueryString();
+        } else {
+            $rents = RentLogs::with(['user', 'book'])->where('status', '=', 'Menunggu')->paginate(7)->withQueryString();
         }
 
         $notif = Notification::all();
@@ -53,7 +52,7 @@ class BookRentUserController extends Controller
 
         return redirect('/transaksi');
     }
-    
+
     public function store(Request $request)
     {
         $user = Auth::user();
@@ -62,19 +61,17 @@ class BookRentUserController extends Controller
         $bookCheck  = Book::where('id', $request->bookId)->where('stock', '=', '0')->count();
 
         if ($bookCheck == 1) {
-            
+
             Session::flash('status', 'fail');
             Session::flash('message', 'Buku tidak tersedia');
             return redirect('/listBuku');
-            
         }
-        
+
         if ($logCount >= 3) {
-            
+
             Session::flash('status', 'fail');
             Session::flash('message', 'Sudah mencapai limit pinjam');
             return redirect('/listBuku');
-
         }
 
         $rentLogData = [
@@ -90,10 +87,10 @@ class BookRentUserController extends Controller
             RentLogs::create($rentLogData);
 
             $book = Book::findOrFail($request->bookId);
-                $book->stock = $book->stock - 1;
-                $book->save();
+            $book->stock = $book->stock - 1;
+            $book->save();
             DB::commit();
-    
+
             Session::flash('status', 'success');
             Session::flash('message', 'Buku berhasil dipinjam');
             return redirect('/listBuku');

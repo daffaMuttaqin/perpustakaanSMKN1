@@ -18,18 +18,17 @@ class BookController extends Controller
     public function index(Request $request)
     {
         if ($request->title) {
-            $books = Book::where('title', 'like', '%' . $request->title . '%')->get();
-        }
-        else {
-            $books = Book::all();
+            $books = Book::where('title', 'like', '%' . $request->title . '%')->paginate(5)->withQueryString();
+        } else {
+            $books = Book::paginate(5);
         }
 
         $notif = Notification::all();
 
-        return view ('admin.dataBuku', [
-            "title" => "Data Buku", 
-            "subJudul" => "Data Buku", 
-            "subJudul2" => "Data Peminjaman", 
+        return view('admin.dataBuku', [
+            "title" => "Data Buku",
+            "subJudul" => "Data Buku",
+            "subJudul2" => "Data Peminjaman",
             "subJudul3" => "", 'books' => $books, 'notif' => $notif
         ]);
     }
@@ -84,7 +83,7 @@ class BookController extends Controller
 
         $data = $request->all();
 
-        if ($request->hasFile('cover')){
+        if ($request->hasFile('cover')) {
 
             $extension = $request->file('cover')->getClientOriginalExtension();
             $newName = $request->title . '-' . now()->timestamp . '.' . $extension;
@@ -95,7 +94,7 @@ class BookController extends Controller
 
             $data['cover'] = basename($path);
         }
-        
+
         $book = Book::find($id);
 
         $book->update($data);
@@ -113,8 +112,8 @@ class BookController extends Controller
     {
         $imageName = Book::find($book);
 
-        Storage::delete('public/cover-book/'.basename($imageName->cover));
-        
+        Storage::delete('public/cover-book/' . basename($imageName->cover));
+
         Book::where('id', $book)->delete();
 
         return redirect('/dataBuku');

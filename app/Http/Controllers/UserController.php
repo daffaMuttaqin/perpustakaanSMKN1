@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    public function indexStudent(Request $request){
+    public function indexStudent(Request $request)
+    {
 
         if ($request->title) {
-            $users = User::where('username', 'like', '%' . $request->title . '%')->where('role', '=', 'Student')->get();
-        }
-        else {
-            $users = User::where('role', '=', 'Student')->get();
+            $users = User::where('username', 'like', '%' . $request->title . '%')->where('role', '=', 'Student')->paginate(7)->withQueryString();
+        } else {
+            $users = User::where('role', '=', 'Student')->paginate(7)->withQueryString();
         }
 
         $notif = Notification::all();
@@ -31,7 +31,8 @@ class UserController extends Controller
         ]);
     }
 
-    public function storeStudent(Request $request){
+    public function storeStudent(Request $request)
+    {
         $data = $request->all();
 
         $data['password'] = Hash::make($data['password']);
@@ -39,7 +40,7 @@ class UserController extends Controller
         $data['nip'] = "";
         $data['role'] = "Student";
         $data['avatar'] = "";
-        
+
         User::create($data);
 
         return redirect('/dataAnggota');
@@ -49,7 +50,7 @@ class UserController extends Controller
     {
         $data = $request->all();
 
-        if ( $request->password != null ) {
+        if ($request->password != null) {
             $data['password'] = Hash::make($data['password']);
         } else {
             $data['password'] = $request->oldPassword;
@@ -64,23 +65,22 @@ class UserController extends Controller
         $users->update($data);
 
         return redirect('/dataAnggota');
-
     }
 
     public function destroyStudent($user)
-    {   
+    {
         User::where('id', $user)->delete();
 
         return redirect('/dataAnggota');
     }
 
-    public function indexAdmin(Request $request){
+    public function indexAdmin(Request $request)
+    {
 
         if ($request->title) {
-            $users = User::where('username', 'like', '%' . $request->title . '%')->where('role', '!=', 'Student')->get();
-        }
-        else {
-            $users = User::where('role', '!=', 'Student')->get();
+            $users = User::where('username', 'like', '%' . $request->title . '%')->where('role', '!=', 'Student')->paginate(7)->withQueryString();
+        } else {
+            $users = User::where('role', '!=', 'Student')->paginate(7)->withQueryString();
         }
 
         $notif = Notification::all();
@@ -93,7 +93,8 @@ class UserController extends Controller
         ]);
     }
 
-    public function storeAdmin(Request $request){
+    public function storeAdmin(Request $request)
+    {
         $data = $request->all();
 
         if ($request->file('avatar')) {
@@ -106,7 +107,7 @@ class UserController extends Controller
 
         $data['jurusan'] = "";
         $data['avatar'] = basename($path);
-        
+
         User::create($data);
 
         return redirect('/dataPekerja');
@@ -116,13 +117,13 @@ class UserController extends Controller
     {
         $data = $request->all();
 
-        if ( $request->password != null ) {
+        if ($request->password != null) {
             $data['password'] = Hash::make($data['password']);
         } else {
             $data['password'] = $request->oldPassword;
         }
 
-        if ($request->hasFile('avatar')){
+        if ($request->hasFile('avatar')) {
 
             $extension = $request->file('avatar')->getClientOriginalExtension();
             $newName = $request->username . '-' . now()->timestamp . '.' . $extension;
@@ -141,11 +142,10 @@ class UserController extends Controller
         $users->update($data);
 
         return redirect('/dataPekerja');
-
     }
 
     public function destroyAdmin($user)
-    {   
+    {
         User::where('id', $user)->delete();
 
         return redirect('/dataPekerja');
