@@ -33,6 +33,11 @@ class UserController extends Controller
 
     public function storeStudent(Request $request)
     {
+        $validated = $request->validate([
+            'username' => 'required|unique:users',
+            'password' => 'required|confirmed|min:8',
+        ]);
+
         $data = $request->all();
 
         $data['password'] = Hash::make($data['password']);
@@ -54,6 +59,10 @@ class UserController extends Controller
         $data = $request->all();
 
         if ($request->password != null) {
+            $validated = $request->validate([
+                'password' => 'required|confirmed|min:8',
+            ]);
+
             $data['password'] = Hash::make($data['password']);
         } else {
             $data['password'] = $request->oldPassword;
@@ -104,6 +113,11 @@ class UserController extends Controller
 
     public function storeAdmin(Request $request)
     {
+        $validated = $request->validate([
+            'username' => 'required|unique:users',
+            'password' => 'required|confirmed|min:8',
+        ]);
+
         $data = $request->all();
 
         if ($request->file('avatar')) {
@@ -130,6 +144,10 @@ class UserController extends Controller
         $data = $request->all();
 
         if ($request->password != null) {
+            $validated = $request->validate([
+                'password' => 'required|confirmed|min:8',
+            ]);
+
             $data['password'] = Hash::make($data['password']);
         } else {
             $data['password'] = $request->oldPassword;

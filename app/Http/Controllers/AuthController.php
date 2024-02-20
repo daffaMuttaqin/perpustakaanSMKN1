@@ -51,6 +51,12 @@ class AuthController extends Controller
     }
 
     public function store(Request $request) {
+
+        $validated = $request->validate([
+            'username' => 'required|unique:users',
+            'password' => 'required|confirmed|min:8',
+        ]);
+
         $data = $request->all();
 
         $data['password'] = Hash::make($data['password']);
